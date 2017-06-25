@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>{{ hello }}</h1>
+    <ul>
+        <li><a href="{{ path('karate_login') }}">Zaloguj sie</a></li>
+        <li><a href="{{ path('karate_register') }}">Zarejestruj sie</a></li>
+    </ul>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
