@@ -1,0 +1,17 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    {{ form_errors(form) }}
+
+    {{ form_row(form.email, {
+        'attr': {'class':'form-control-red'}
+
+    }) }}
+
+    {{ form_widget(form) }}
+    <div class="form-group">
+        <input type="submit" class="btn-primary btn-md btn" value="{{ 'registration.submit'|trans }}" />
+    </div>
+{{ form_end(form) }}
+
+

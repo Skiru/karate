@@ -1,11 +1,22 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}
+    KARATE RZESZOW
+{% endblock %}
 {% block body %}
-<h1>{{ hello }}</h1>
-    <ul>
-        <li><a href="{{ path('karate_login') }}">Zaloguj sie</a></li>
-        <li><a href="{{ path('karate_register') }}">Zarejestruj sie</a></li>
-    </ul>
+    <div class="container">
+        <h1 class="text-center">{{ hello }}</h1>
+
+        {% if app.user %}
+            <a href="{{ path('fos_user_security_logout') }}">Wyloguj się</a>
+        {% else %}
+            <a href="{{ path('fos_user_security_login') }}">Zaloguj się</a>
+        {% endif %}
+
+    <a href="{{ path('fos_user_registration_register') }}">Zarejestruj się</a>
+
+    </div>
+
 {% endblock %}
 
 {% block stylesheets %}

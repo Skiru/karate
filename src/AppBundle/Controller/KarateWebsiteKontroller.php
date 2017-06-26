@@ -30,23 +30,8 @@ class KarateWebsiteKontroller extends Controller
         ]);
     }
 
-    /**
-     * @Route("/login",name="karate_login")
-     * @Method("GET")
-     */
-    public function loginAction(){
 
-        return $this->render('mainpage/login.html.twig');
-    }
 
-    /**
-     * @Route("/register",name="karate_register")
-     * @Method("GET")
-     */
-    public function registerAction(){
-
-        return $this->render('mainpage/register.html.twig');
-    }
 
 
 
