@@ -26,6 +26,22 @@ class User extends BaseUser
      */
     private $posts;
 
+    /**
+     * @return mixed
+     */
+    public function getPosts()
+    {
+        return $this->posts;
+    }
+
+    /**
+     * @param mixed $posts
+     */
+    public function setPosts($posts)
+    {
+        $this->posts = $posts;
+    }
+
     public function __construct()
     {
         parent::__construct();

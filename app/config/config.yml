@@ -7,6 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: pl
+    app.path.post_image: /uploads/images/posts
 
 framework:
     #esi: ~
@@ -89,3 +90,51 @@ fos_user:
     from_email:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+            post_image:
+                uri_prefix: '%app.path.post_image%'
+                upload_destination: '%kernel.root_dir%/../web/uploads/images/posts'
+
+easy_admin:
+    site_name: Karate Kyokushin Rzeszów
+    design:
+      brand_color: '#de1b1b'
+    entities:
+      Post:
+        class: AppBundle\Entity\Post
+        label: Aktualności
+
+        list:
+          fields:
+              - id
+              - author
+              - title
+              - content
+              - { property: 'image', type: 'image', base_path: '%app.path.post_image%' }
+              - { property: 'createdAt', format: 'j / M / Y' }
+
+        form:
+          fields:
+              - { property: 'title', css_class: 'large' }
+              - { property: 'content'}
+              - { type: 'divider' }
+              - { property: 'categories', type: 'easyadmin_autocomplete' }
+              - { property: 'createdAt' }
+              - { property: 'imageFile', type: 'vich_image', type_options: { required: true } }
+      Category:
+        class: AppBundle\Entity\Category
+        label: Kategorie
+      User:
+        class: AppBundle\Entity\User
+        form:
+          fields:
+            - username
+            - email
+            - enabled
+            - lastLogin
+            # if administrators are allowed to edit users' passwords and roles, add this:
+            - { property: 'plainPassword', type: 'text', type_options: { required: false } }
+            - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
