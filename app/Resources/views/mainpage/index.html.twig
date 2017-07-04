@@ -10,10 +10,9 @@
         {% if app.user %}
             <a href="{{ path('fos_user_security_logout') }}">Wyloguj się</a>
         {% else %}
-            <a href="{{ path('fos_user_security_login') }}">Zaloguj się</a>
+            <a href="{{ path('easyadmin') }}">Zaloguj się</a>
         {% endif %}
 
-    <a href="{{ path('fos_user_registration_register') }}">Zarejestruj się</a>
 
     </div>
 

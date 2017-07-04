@@ -111,6 +111,7 @@ easy_admin:
           fields:
               - id
               - author
+              - categories
               - title
               - content
               - { property: 'image', type: 'image', base_path: '%app.path.post_image%' }
@@ -120,6 +121,7 @@ easy_admin:
           fields:
               - { property: 'title', css_class: 'large' }
               - { property: 'content'}
+              - { property: 'author'}
               - { type: 'divider' }
               - { property: 'categories', type: 'easyadmin_autocomplete' }
               - { property: 'createdAt' }
@@ -130,11 +132,10 @@ easy_admin:
       User:
         class: AppBundle\Entity\User
         form:
+        new:
           fields:
             - username
             - email
-            - enabled
-            - lastLogin
             # if administrators are allowed to edit users' passwords and roles, add this:
-            - { property: 'plainPassword', type: 'text', type_options: { required: false } }
+            - { property: 'plainPassword', type: 'password', label: 'Nowe hasło', type_options: { required: true } }
             - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
