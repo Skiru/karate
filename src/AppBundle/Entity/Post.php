@@ -11,13 +11,16 @@ namespace AppBundle\Entity;
 use AppBundle\Entity\Category;
 use AppBundle\Entity\Tag;
 use AppBundle\Entity\User;
+use AppBundle\Libs\Utils;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="posts")
+ * @ORM\HasLifecycleCallbacks
  */
 class Post
 {
@@ -150,7 +153,7 @@ class Post
      */
     public function setSlug($slug)
     {
-        $this->slug = $slug;
+        $this->slug = Utils::sluggify($slug);
 
         return $this;
     }
@@ -312,7 +315,7 @@ class Post
     /**
      * Get tags
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getTags()
     {
@@ -341,5 +344,16 @@ class Post
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function preSave(){
+
+        if ($this->slug === null){
+            $this->setSlug($this->getTitle());
+        }
     }
 }

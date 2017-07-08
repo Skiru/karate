@@ -9,12 +9,14 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Entity\Post;
+use AppBundle\Libs\Utils;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\MappedSuperclass
+ * @ORM\HasLifecycleCallbacks
  */
 abstract class AbstractTaxonomy
 {
@@ -122,7 +124,7 @@ abstract class AbstractTaxonomy
      */
     public function setSlug($slug)
     {
-        $this->slug = $slug;
+        $this->slug = Utils::sluggify($slug);
 
         return $this;
     }
@@ -135,5 +137,17 @@ abstract class AbstractTaxonomy
     public function getSlug()
     {
         return $this->slug;
+    }
+
+
+    /**
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function preSave(){
+
+        if ($this->slug === null){
+            $this->setSlug($this->getName());
+        }
     }
 }
