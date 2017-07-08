@@ -12,6 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
+    public function __construct()
+    {
+        parent::__construct();
+
+    }
+
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -19,9 +26,31 @@ class User extends BaseUser
      */
     protected $id;
 
-    public function __construct()
+    /**
+     * One author can write multiple posts.
+     *
+     * @ORM\OneToMany(
+     *     targetEntity="Post",
+     *     mappedBy="author"
+     * )
+     */
+    private $posts;
+
+    /**
+     * @return mixed
+     */
+    public function getPosts()
     {
-        parent::__construct();
-        // your own logic
+        return $this->posts;
     }
+
+    /**
+     * @param mixed $posts
+     */
+    public function setPosts($posts)
+    {
+        $this->posts = $posts;
+    }
+
+
 }

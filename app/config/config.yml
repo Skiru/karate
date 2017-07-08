@@ -103,39 +103,9 @@ easy_admin:
     design:
       brand_color: '#de1b1b'
     entities:
-      Post:
-        class: AppBundle\Entity\Post
-        label: Aktualności
-
-        list:
-          fields:
-              - id
-              - author
-              - categories
-              - title
-              - content
-              - { property: 'image', type: 'image', base_path: '%app.path.post_image%' }
-              - { property: 'createdAt', format: 'j / M / Y' }
-
-        form:
-          fields:
-              - { property: 'title', css_class: 'large' }
-              - { property: 'content'}
-              - { property: 'author'}
-              - { type: 'divider' }
-              - { property: 'categories', type: 'easyadmin_autocomplete' }
-              - { property: 'createdAt' }
-              - { property: 'imageFile', type: 'vich_image', type_options: { required: true } }
       Category:
         class: AppBundle\Entity\Category
-        label: Kategorie
+      Post:
+        class: AppBundle\Entity\Post
       User:
         class: AppBundle\Entity\User
-        form:
-        new:
-          fields:
-            - username
-            - email
-            # if administrators are allowed to edit users' passwords and roles, add this:
-            - { property: 'plainPassword', type: 'password', label: 'Nowe hasło', type_options: { required: true } }
-            - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }

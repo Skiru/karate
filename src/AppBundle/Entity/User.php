@@ -3,6 +3,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Post;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -12,6 +13,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
+    public function __construct()
+    {
+        parent::__construct();
+
+    }
+
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -20,9 +28,12 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @var
+     * One author can write multiple posts.
      *
-     * @ORM\OneToMany(targetEntity="Post", mappedBy="author")
+     * @ORM\OneToMany(
+     *     targetEntity="Post",
+     *     mappedBy="author"
+     * )
      */
     private $posts;
 
@@ -42,9 +53,29 @@ class User extends BaseUser
         $this->posts = $posts;
     }
 
-    public function __construct()
+
+
+    /**
+     * Add post
+     *
+     * @param Post $post
+     *
+     * @return User
+     */
+    public function addPost(Post $post)
     {
-        parent::__construct();
-        // your own logic
+        $this->posts[] = $post;
+
+        return $this;
+    }
+
+    /**
+     * Remove post
+     *
+     * @param Post $post
+     */
+    public function removePost(Post $post)
+    {
+        $this->posts->removeElement($post);
     }
 }

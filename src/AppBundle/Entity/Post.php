@@ -7,137 +7,133 @@
  */
 
 namespace AppBundle\Entity;
+
+use AppBundle\Entity\Category;
+use AppBundle\Entity\Tag;
+use AppBundle\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
 /**
- * Class Post
- * @package AppBundle\Entity
- *
  * @ORM\Entity
- * @ORM\Table(name="post")
- * @Vich\Uploadable
+ * @ORM\Table(name="posts")
  */
 class Post
 {
     /**
-     * @var integer
-     *
-     * @ORM\Id
      * @ORM\Column(type="integer")
+     * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id=null;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="User",  inversedBy="posts")
-     */
-    private $author;
-
-    /**
-     * @var string
      *
-     * @ORM\Column(type="string", length=255, nullable=false)
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=120, unique=true)
      */
     private $title;
 
     /**
-     * @var string
-     * @ORM\Column(type="text", nullable=false)
+     * @ORM\Column(type="string", length=120, unique=true)
+     */
+    private $slug;
+
+    /**
+     * @ORM\Column(type="text")
      */
     private $content;
 
     /**
-     * @var \DateTime
+     * @ORM\Column(type="string", length=80, nullable=true)
+     */
+    private $thumbnail=null;
+
+
+    /**
+     * @ORM\ManyToOne(
+     *     targetEntity="Category",
+     *     inversedBy="posts"
+     * )
      *
-     * @ORM\Column(name="created_at", type="datetime", nullable=false)
+     * @ORM\JoinColumn(
+     *     name="category_id",
+     *     referencedColumnName="id",
+     *     onDelete="SET NULL"
+     * )
      */
-    private $createdAt=null;
-
+    private $category;
 
     /**
-     * @var Category[]
-     * @ORM\ManyToMany(targetEntity="Category", inversedBy="posts")
-     * @ORM\JoinTable(name="post_category")
-     */
-    private $categories;
-
-
-
-    /**
-     * @var string
+     * @ORM\ManyToMany(
+     *     targetEntity="Tag",
+     *     inversedBy="posts"
+     * )
      *
-     * @ORM\Column(name="cover_image",type="string",length=255, nullable=false)
-    */
-    private $image;
-
+     * @ORM\JoinTable(
+     *     name="posts_tags"
+     * )
+     */
+    private $tags;
 
     /**
-     * This unmapped property stores the binary contents of the image file
-     * associated with the product.
+     * @ORM\ManyToOne(
+     *     targetEntity="User",
+     *     inversedBy="posts"
+     * )
      *
-     * @Vich\UploadableField(mapping="post_image", fileNameProperty="image")
-     * @var File
+     * @ORM\JoinColumn(
+     *     name="author_id",
+     *     referencedColumnName="id"
+     * )
      */
-    private $imageFile;
-
+    private $author;
 
     /**
-     * @return File
+     * @ORM\Column(name="create_date", type="datetime")
      */
-    public function getImageFile()
-    {
-        return $this->imageFile;
-    }
+    private $createDate;
 
     /**
-     * @param File $imageFile
+     * @ORM\Column(name="published_date", type="datetime", nullable=true)
      */
-    public function setImageFile(File $image=null)
-    {
-        $this->imageFile = $image;
+    private $publishedDate;
 
-        if ($image) {
-            // if 'updatedAt' is not defined in your entity, use another property
-            $this->createdAt = new \DateTime('now');
-        }
-    }
-
-
+    /**
+     * Constructor
+     */
     public function __construct()
     {
-        $this->categories = new ArrayCollection();
-        $this->createdAt = new \DateTime();
+        $this->tags = new ArrayCollection();
     }
 
     /**
-     * @return mixed
+     * Get id
+     *
+     * @return integer
      */
-    public function getAuthor()
+    public function getId()
     {
-        return $this->author;
+        return $this->id;
     }
 
     /**
-     * @param mixed $author
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Post
      */
-    public function setAuthor($author)
+    public function setTitle($title)
     {
-        $this->author = $author;
+        $this->title = $title;
+
+        return $this;
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function __toString()
-    {
-        return $this->getTitle();
-    }
-
-    /**
+     * Get title
+     *
      * @return string
      */
     public function getTitle()
@@ -146,14 +142,46 @@ class Post
     }
 
     /**
-     * @param string $title
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Post
      */
-    public function setTitle($title)
+    public function setSlug($slug)
     {
-        $this->title = $title;
+        $this->slug = $slug;
+
+        return $this;
     }
 
     /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set content
+     *
+     * @param string $content
+     *
+     * @return Post
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
      * @return string
      */
     public function getContent()
@@ -162,109 +190,156 @@ class Post
     }
 
     /**
-     * @param string $content
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param \DateTime $createdAt
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
-     * @return Category[]
-     */
-    public function getCategories()
-    {
-        return $this->categories;
-    }
-
-    /**
-     * Add a category in the post association.
-     * (Owning side).
+     * Set thumbnail
      *
-     * @param $category Category the category to associate
-     */
-    public function addCategory($category)
-    {
-        if ($this->categories->contains($category)) {
-            return;
-        }
-
-        $this->categories->add($category);
-        $category->addPost($this);
-    }
-
-    /**
-     * Remove a category in the product association.
-     * (Owning side).
+     * @param string $thumbnail
      *
-     * @param $category Category the category to associate
+     * @return Post
      */
-    public function removeCategory($category)
+    public function setThumbnail($thumbnail)
     {
-        if (!$this->categories->contains($category)) {
-            return;
-        }
+        $this->thumbnail = $thumbnail;
 
-        $this->categories->removeElement($category);
-        $category->removePost($this);
-    }
-
-
-    /**
-     * @param Category[] $categories
-     */
-    public function setCategories($categories)
-    {
-        foreach ($this->getCategories() as $category) {
-            $this->removeCategory($category);
-        }
-        foreach ($categories as $category) {
-            $this->addCategory($category);
-        }
+        return $this;
     }
 
     /**
+     * Get thumbnail
+     *
      * @return string
      */
-    public function getImage()
+    public function getThumbnail()
     {
-        return $this->image;
+        return $this->thumbnail;
     }
 
     /**
-     * @param string $coverImage
+     * Set createDate
+     *
+     * @param \DateTime $createDate
+     *
+     * @return Post
      */
-    public function setImage($image)
+    public function setCreateDate($createDate)
     {
-        $this->image = $image;
+        $this->createDate = $createDate;
+
+        return $this;
     }
 
     /**
-     * @return int
+     * Get createDate
+     *
+     * @return \DateTime
      */
-    public function getId()
+    public function getCreateDate()
     {
-        return $this->id;
+        return $this->createDate;
     }
 
+    /**
+     * Set publishedDate
+     *
+     * @param \DateTime $publishedDate
+     *
+     * @return Post
+     */
+    public function setPublishedDate($publishedDate)
+    {
+        $this->publishedDate = $publishedDate;
 
+        return $this;
+    }
 
+    /**
+     * Get publishedDate
+     *
+     * @return \DateTime
+     */
+    public function getPublishedDate()
+    {
+        return $this->publishedDate;
+    }
 
+    /**
+     * Set category
+     *
+     * @param Category $category
+     *
+     * @return Post
+     */
+    public function setCategory(Category $category = null)
+    {
+        $this->category = $category;
 
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Add tag
+     *
+     * @param Tag $tag
+     *
+     * @return Post
+     */
+    public function addTag(Tag $tag)
+    {
+        $this->tags[] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Remove tag
+     *
+     * @param Tag $tag
+     */
+    public function removeTag(Tag $tag)
+    {
+        $this->tags->removeElement($tag);
+    }
+
+    /**
+     * Get tags
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * Set author
+     *
+     * @param User $author
+     *
+     * @return Post
+     */
+    public function setAuthor(User $author = null)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return User
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
 }
