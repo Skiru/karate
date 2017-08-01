@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="PublishConfigData" serverName="Kyokushin Rzeszów">
     <serverData>
       <paths name="KR">
+=======
+  <component name="PublishConfigData" serverName="Karate Rzeszów">
+    <serverData>
+      <paths name="Karate Rzeszów">
+>>>>>>> 010af44172ff0f4daa7f5b679c04d74b517a4d96
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
+<<<<<<< HEAD
       <paths name="Karate Rzeszów">
         <serverdata>
           <mappings>
@@ -16,6 +23,8 @@
           </mappings>
         </serverdata>
       </paths>
+=======
+>>>>>>> 010af44172ff0f4daa7f5b679c04d74b517a4d96
       <paths name="Kyokushin Rzeszów">
         <serverdata>
           <mappings>
