@@ -356,4 +356,10 @@ class Post
             $this->setSlug($this->getTitle());
         }
     }
+
+
+    function __toString()
+    {
+        return $this->title;
+    }
 }

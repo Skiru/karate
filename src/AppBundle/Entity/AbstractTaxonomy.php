@@ -150,4 +150,9 @@ abstract class AbstractTaxonomy
             $this->setSlug($this->getName());
         }
     }
+
+    function __toString()
+    {
+        return $this->getName();
+    }
 }
