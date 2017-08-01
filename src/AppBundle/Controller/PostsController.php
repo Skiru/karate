@@ -29,10 +29,16 @@ class PostsController extends Controller
      */
     public function indexAction($page){
         $postsRepo = $this->getDoctrine()->getRepository('AppBundle:Post');
-        $allPosts = $postsRepo->findBy(array(),array('publishedDate'=>'desc'));
+        //$allPosts = $postsRepo->findBy(array(),array('publishedDate'=>'desc'));
+
+        $qb = $postsRepo->getQueryBuilder(array(
+            'status' => 'published',
+            'orderBy' => 'p.publishedDate',
+            'orderDir' => 'DESC'
+        ));
 
         $paginator = $this->get('knp_paginator');
-        $pagination = $paginator->paginate($allPosts,$page,$this->itemsLimit);
+        $pagination = $paginator->paginate($qb,$page,$this->itemsLimit);
 
         return $this->render('mainpage/index.html.twig',[
             'pagination' => $pagination
