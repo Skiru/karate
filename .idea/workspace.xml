@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e73c76e1-fbf9-464e-913b-7e977df75ede" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/PostsController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/PostsController.php" />
-    </list>
+    <list default="true" id="e73c76e1-fbf9-464e-913b-7e977df75ede" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -574,12 +572,12 @@
       <workItem from="1501516852427" duration="1987000" />
       <workItem from="1501520844125" duration="197000" />
       <workItem from="1501521101106" duration="7713000" />
-      <workItem from="1501584886534" duration="245000" />
+      <workItem from="1501584886534" duration="332000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107784000" />
+    <option name="totallyTimeSpent" value="107871000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
