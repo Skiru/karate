@@ -109,3 +109,4 @@ easy_admin:
         class: AppBundle\Entity\Post
       User:
         class: AppBundle\Entity\User
+

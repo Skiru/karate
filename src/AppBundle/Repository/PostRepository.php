@@ -7,10 +7,25 @@
  */
 
 namespace AppBundle\Repository;
-use DateTime;
+
 use Doctrine\ORM\EntityRepository;
+use DateTime;
 
 class PostRepository extends EntityRepository{
+
+    public function getPublishedPost($slug) {
+
+        $qb = $this->getQueryBuilder(array(
+            'status' => 'published'
+        ));
+
+        $qb->andWhere('p.slug = :slug')
+            ->setParameter('slug', $slug);
+
+        return $qb->getQuery()->getOneOrNullResult();
+
+    }
+
 
     public function getQueryBuilder(array $params = array()) {
 
@@ -31,6 +46,24 @@ class PostRepository extends EntityRepository{
         if (!empty($params['orderBy'])) {
             $orderDir = !empty($params['orderDir']) ? $params['orderDir'] : NULL;
             $qb->orderBy($params['orderBy'], $orderDir);
+        }
+
+        if (!empty($params['categorySlug'])){
+
+            $qb->andWhere('c.slug = :categorySlug')
+                ->setParameter('categorySlug', $params['categorySlug']);
+        }
+
+        if (!empty($params['tagSlug'])) {
+            $qb->andWhere('t.slug = :tagSlug')
+                ->setParameter('tagSlug', $params['tagSlug']);
+        }
+
+        if (!empty($params['search'])) {
+            $searchParam = '%'.$params['search'].'%';
+            
+            $qb->andWhere('p.title like :searchParam OR p.content LIKE :searchParam')
+                ->setParameter('searchParam', $searchParam);
         }
 
         return $qb;
