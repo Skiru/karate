@@ -1,0 +1,6 @@
+<h3>Chmura tagów</h3>
+{% for tag in tagsList %}
+    <a style="font-size: {{ tag['fontSize'] }}rem" href="{{ path('karate_tag', {'slug': tag['slug']}) }}">
+        {{ tag['name'] }}
+    </a>
+{% endfor %}

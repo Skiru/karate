@@ -11,7 +11,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\TagRepository")
  * @ORM\Table(name="tags")
  */
 class Tag extends AbstractTaxonomy

@@ -8,6 +8,11 @@
 
 {% block content %}
 
+    <h2> Lista kategorii:</h2>
+    {{ print_categories_list() }}
+
+    {{ print_tags_cloud() }}
+
     <form action="{{ path('karate_search') }}">
         <input type="text" value="{{ searchParam is defined ? searchParam : '' }}" name="search" placeholder="Wyszukaj">
     </form>

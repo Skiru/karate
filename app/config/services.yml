@@ -6,6 +6,7 @@ parameters:
 services:
     karate_website.twig.extension.karate:
         class: AppBundle\Twig\Extension\KarateExtension
+        arguments: ["@doctrine"]
         tags:
             - { name: twig.extension }
     # default configuration for services in *this* file
