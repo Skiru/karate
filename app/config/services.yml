@@ -4,6 +4,10 @@ parameters:
     #parameter_name: value
 
 services:
+    karate_website.twig.extension.karate:
+        class: AppBundle\Twig\Extension\KarateExtension
+        tags:
+            - { name: twig.extension }
     # default configuration for services in *this* file
     _defaults:
         # automatically injects dependencies in your services
