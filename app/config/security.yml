@@ -14,19 +14,23 @@ security:
         main:
             pattern: ^/
             form_login:
-#                default_target_path: /admin
+                default_target_path: /kkrz/admin
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
                 # if you are using Symfony < 2.8, use the following config instead:
                 # csrf_provider: form.csrf_provider
 
-            logout:       true
+            logout:
+                path: fos_user_security_logout
             anonymous:    true
             remember_me:
                 secret: '%secret%'
 
     access_control:
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/kkrz/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/kkrz/register, role: ROLE_ADMIN }
+        - { path: ^/kkrz/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/kkrz/admin/, role: ROLE_ADMIN }
+

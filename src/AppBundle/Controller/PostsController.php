@@ -137,7 +137,7 @@ class PostsController extends Controller
 
     /**
      * @Route(
-     *     "/{slug}",
+     *     "/post/{slug}",
      *     name = "karate_single_post"
      * )
      *
@@ -151,7 +151,6 @@ class PostsController extends Controller
         if ($post === null){
             throw $this->createNotFoundException('Szukany post nie został odnaleziony');
         }
-
 
         return $this->render('Posts/post.html.twig',[
             'post' => $post
