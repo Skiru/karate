@@ -95,8 +95,13 @@ vich_uploader:
     db_driver: orm
     mappings:
             post_image:
-                uri_prefix: '%app.path.post_image%'
+                uri_prefix: /uploads/posts
                 upload_destination: '%kernel.root_dir%/../web/uploads/images/posts'
+                namer: vich_uploader.namer_origname
+            gallery_image:
+                uri_prefix: /uploads/galleries
+                upload_destination: '%kernel.root_dir%/../web/uploads/images/galleries'
+                namer: vich_uploader.namer_origname
 
 easy_admin:
     site_name: Karate Kyokushin Rzeszów
