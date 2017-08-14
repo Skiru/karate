@@ -8,12 +8,12 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use AppBundle\Entity\Gallery;
 use AppBundle\Libs\Utils;
 use DateTime;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 
@@ -26,8 +26,6 @@ use Symfony\Component\HttpFoundation\File\File;
 class Photo
 {
     /**
-     * @var int
-     *
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -45,9 +43,8 @@ class Photo
      */
     private $imageFile;
 
-
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      *
      * @var string
      */
@@ -65,32 +62,13 @@ class Photo
      *
      * @var DateTime
      */
-    private $uploadAt;
+    private $updatedAt;
 
     /**
-     * @return DateTime
-     */
-    public function getUploadAt()
-    {
-        return $this->uploadAt;
-    }
-
-    /**
-     * @param DateTime $uploadAt
-     */
-    public function setUploadAt($uploadAt)
-    {
-        $this->uploadAt = $uploadAt;
-    }
-
-
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Gallery", inversedBy="photos", cascade={"persist"})
-     * @ORM\JoinColumn(name="gallery_id", referencedColumnName="id", nullable=true)
+     * @ORM\ManyToOne(targetEntity="Gallery", inversedBy="photos")
+     * @ORM\JoinColumn(name="gallery_id", referencedColumnName="id")
      **/
     private $gallery;
-
 
 
     /**
@@ -105,7 +83,7 @@ class Photo
 
 
     /**
-     * @param File | UploadedFile $image
+     * @param File|UploadedFile $image
      *
      * @return Photo
      */
@@ -116,7 +94,7 @@ class Photo
         if ($image) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
-            $this->updatedAt = new DateTime('now');
+            $this->updatedAt = new DateTime();
         }
 
         return $this;
@@ -202,7 +180,29 @@ class Photo
         return $this->imageSize;
     }
 
+    /**
+     * Set updatedAt
+     *
+     * @param DateTime $updatedAt
+     *
+     * @return Photo
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
 
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
 
     /**
      * Set gallery
@@ -211,7 +211,7 @@ class Photo
      *
      * @return Photo
      */
-    public function setGallery(Gallery $gallery)
+    public function setGallery(Gallery $gallery = null)
     {
         $this->gallery = $gallery;
 
@@ -227,11 +227,4 @@ class Photo
     {
         return $this->gallery;
     }
-
-    function __toString()
-    {
-        return (string)$this->getImageName();
-    }
-
-
 }

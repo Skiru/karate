@@ -8,6 +8,7 @@ imports:
 parameters:
     locale: pl
     app.path.post_image: /uploads/images/posts
+    app.path.gallery_image: /uploads/images/galleries
 
 framework:
     #esi: ~
@@ -94,14 +95,16 @@ fos_user:
 vich_uploader:
     db_driver: orm
     mappings:
-            post_image:
-                uri_prefix: /uploads/posts
-                upload_destination: '%kernel.root_dir%/../web/uploads/images/posts'
-                namer: vich_uploader.namer_origname
-            gallery_image:
-                uri_prefix: /uploads/galleries
-                upload_destination: '%kernel.root_dir%/../web/uploads/images/galleries'
-                namer: vich_uploader.namer_origname
+      post_image:
+          uri_prefix: '%app.path.post_image%'
+          upload_destination: '%kernel.root_dir%/../web/uploads/images/posts'
+      gallery_image:
+          uri_prefix: '%app.path.gallery_image%'
+          upload_destination: '%kernel.root_dir%/../web/uploads/images/galleries'
+          namer: vich_uploader.namer_uniqid
+          inject_on_load: false
+          delete_on_update: true
+          delete_on_remove: true
 
 easy_admin:
     site_name: Karate Kyokushin Rzeszów
@@ -114,4 +117,25 @@ easy_admin:
         class: AppBundle\Entity\Post
       User:
         class: AppBundle\Entity\User
-
+      Photo:
+        class: AppBundle\Entity\Photo
+        controller: AppBundle\Controller\EasyAdmin\PhotoController
+        list:
+            fields:
+                - { property: 'imageName', type: 'image', base_path: '%app.path.gallery_image%' }
+                - { property: 'slug' }
+                - { property: 'imageSize' }
+                - { property: 'gallery' }
+                - { property: 'updatedAt' }
+        form:
+            fields:
+                - { property: 'imageFile', type: 'vich_image'}
+                - { property: 'gallery' }
+      Gallery:
+        class: AppBundle\Entity\Gallery
+        controller: AppBundle\Controller\EasyAdmin\PhotoController
+        form:
+            fields:
+                - { property: 'photos'}
+                - { property: 'name' }
+                - { property: 'description' }
