@@ -126,16 +126,12 @@ easy_admin:
                 - { property: 'slug' }
                 - { property: 'imageSize' }
                 - { property: 'gallery' }
-                - { property: 'updatedAt' }
+                - { property: 'uploadAt' }
         form:
             fields:
-                - { property: 'imageFile', type: 'vich_image'}
+                - { property: 'imageFile',type: 'vich_file'}
                 - { property: 'gallery' }
       Gallery:
         class: AppBundle\Entity\Gallery
-        controller: AppBundle\Controller\EasyAdmin\PhotoController
-        form:
-            fields:
-                - { property: 'photos'}
-                - { property: 'name' }
-                - { property: 'description' }
+
+

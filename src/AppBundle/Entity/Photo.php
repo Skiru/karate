@@ -83,11 +83,10 @@ class Photo
         $this->uploadAt = $uploadAt;
     }
 
-
-
     /**
-     * @ORM\ManyToOne(targetEntity="Gallery", inversedBy="photos", cascade={"persist"})
-     * @ORM\JoinColumn(name="gallery_id", referencedColumnName="id", nullable=true)
+     * @var Gallery
+     *
+     * @ORM\ManyToOne(targetEntity="Gallery", inversedBy="photos")
      **/
     private $gallery;
 
@@ -211,7 +210,7 @@ class Photo
      *
      * @return Photo
      */
-    public function setGallery(Gallery $gallery)
+    public function setGallery(Gallery $gallery = null)
     {
         $this->gallery = $gallery;
 

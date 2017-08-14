@@ -34,6 +34,8 @@ class Gallery
     private $description;
 
     /**
+     * @var Photo[]|ArrayCollection
+     *
      * @ORM\OneToMany(targetEntity="Photo", mappedBy="gallery", cascade={"persist", "remove"})
      *
      */
@@ -136,13 +138,15 @@ class Gallery
      */
     public function removePhoto(Photo $photo)
     {
+        $photo->setGallery(null);
         $this->photos->removeElement($photo);
     }
 
     /**
      * Get photos
      *
-     * @return ArrayCollection
+     *
+     * @return Photo[]|ArrayCollection
      */
     public function getPhotos()
     {
