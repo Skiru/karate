@@ -29,10 +29,14 @@ services:
         tags:
             - { name: doctrine.event_listener, event: prePersist }
             - { name: doctrine.event_listener, event: preRemove }
-#            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: preUpdate }
 
-
-
+    app.form.type.custom_file_type:
+        class: AppBundle\Form\Type\CustomFileType
+        arguments:
+            - "@logger"
+        tags:
+            - { name: form.type, alias: custom_file_type}
 
     karate_website.twig.extension.karate:
         class: AppBundle\Twig\Extension\KarateExtension

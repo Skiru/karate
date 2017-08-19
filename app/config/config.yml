@@ -43,6 +43,7 @@ twig:
         thousands_separator: ','
     form_themes:
         - bootstrap_3_layout.html.twig
+        - 'Form/fields.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -118,6 +119,7 @@ easy_admin:
                 - { property: 'gallery' }
         edit:
             fields:
+                - { property: 'imageFile',type: AppBundle\Form\Type\CustomFileType, type_options: { required: true }}
                 - { property: 'slug' }
                 - { property: 'gallery' }
 

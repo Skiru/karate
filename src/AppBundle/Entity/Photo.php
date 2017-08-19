@@ -19,6 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Table(name="photos")
  * @ORM\Entity
+ * @ORM\HasLifeCycleCallbacks
  */
 class Photo
 {
@@ -82,11 +83,15 @@ class Photo
     }
 
     /**
-     * @param DateTime $uploadAt
+     * @ORM\PrePersist
+     *
+     * @param Photo
+     * @return $this
      */
-    public function setUploadAt($uploadAt)
+    public function setUploadAt()
     {
-        $this->uploadAt = $uploadAt;
+        $this->uploadAt = new DateTime('now');
+        return $this;
     }
 
 

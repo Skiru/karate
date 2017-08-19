@@ -37,18 +37,26 @@ class PhotoUploadListener
         $this->fileDeleter = $fileDeleter;
     }
 
-    public function prePersist(LifecycleEventArgs $eventArgs) {
-        /**
-         * @var $entity Photo
-         */
-        $entity = $eventArgs->getEntity();
+    public function prePersist(LifecycleEventArgs $eventArgs)
+    {
+        $this->upload(
+            $eventArgs->getEntity()
+        );
+    }
 
+    public function preUpdate(PreUpdateEventArgs $eventArgs)
+    {
+        $this->upload(
+            $eventArgs->getEntity()
+        );
+    }
+
+    private function upload($entity)
+    {
         // if not Photo entity return false
-        if (false === $eventArgs->getEntity() instanceof Photo) {
+        if (false === $entity instanceof Photo) {
             return false;
         }
-
-
 
         //get access to the file
         $file = $entity->getImageFile();
@@ -56,14 +64,14 @@ class PhotoUploadListener
         $temporaryLocation = $file->getPathname();
 
         $newLocation = $this->photoFilePathHelper->getNewFilePath(
-          $file->getClientOriginalName()
+            $file->getClientOriginalName()
         );
 
         $this->fileMover->move($temporaryLocation,$newLocation);
 
         //addition infos setting up for entity before persisting
         $entity->setSlug(
-          Utils::sluggify($file->getClientOriginalName())
+            Utils::sluggify($file->getClientOriginalName())
         );
 
         $entity->setImageSize(
@@ -71,15 +79,10 @@ class PhotoUploadListener
         );
 
         $entity->setImageName(
-          $file->getClientOriginalName()
+            $file->getClientOriginalName()
         );
 
         return true;
-    }
-
-    public function preUpdate(PreUpdateEventArgs $eventArgs) {
-
-
     }
 
 
