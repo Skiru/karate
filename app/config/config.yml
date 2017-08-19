@@ -92,20 +92,6 @@ fos_user:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
 
-vich_uploader:
-    db_driver: orm
-    mappings:
-      post_image:
-          uri_prefix: '%app.path.post_image%'
-          upload_destination: '%kernel.root_dir%/../web/uploads/images/posts'
-      gallery_image:
-          uri_prefix: '%app.path.gallery_image%'
-          upload_destination: '%kernel.root_dir%/../web/uploads/images/galleries'
-          namer: vich_uploader.namer_uniqid
-          inject_on_load: false
-          delete_on_update: true
-          delete_on_remove: true
-
 easy_admin:
     site_name: Karate Kyokushin Rzeszów
     design:
@@ -119,18 +105,22 @@ easy_admin:
         class: AppBundle\Entity\User
       Photo:
         class: AppBundle\Entity\Photo
-        controller: AppBundle\Controller\EasyAdmin\PhotoController
         list:
             fields:
-                - { property: 'imageName', type: 'image', base_path: '%app.path.gallery_image%' }
+                - { property: 'imageName', type: 'image', base_path: '%app.path.gallery_image%', label: 'Image' }
                 - { property: 'slug' }
-                - { property: 'imageSize' }
+                - { property: 'imageSize', format: "%0.2f", label: 'Rozmiar (MB)' }
                 - { property: 'gallery' }
                 - { property: 'uploadAt' }
-        form:
+        new:
             fields:
-                - { property: 'imageFile',type: 'vich_file'}
+                - { property: 'imageFile',type: 'file' }
                 - { property: 'gallery' }
+        edit:
+            fields:
+                - { property: 'slug' }
+                - { property: 'gallery' }
+
       Gallery:
         class: AppBundle\Entity\Gallery
 

@@ -4,6 +4,26 @@ parameters:
     #parameter_name: value
 
 services:
+    app.service.local_filesystem_file_mover:
+        class: AppBundle\Service\LocalFilesystemFileMover
+        arguments:
+            - "@filesystem"
+
+    app.service.photo_file_path_helper:
+        class: AppBundle\Service\PhotoFilePathHelper
+        arguments:
+            - "%kernel.root_dir%/../web/uploads/images/galleries/"
+
+    app.doctrine_event_listener.photo_upload_listener:
+        class: AppBundle\Event\Listener\PhotoUploadListener
+        arguments:
+            - "@app.service.local_filesystem_file_mover"
+            - "@app.service.photo_file_path_helper"
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+
+
+
     karate_website.twig.extension.karate:
         class: AppBundle\Twig\Extension\KarateExtension
         arguments: ["@doctrine"]

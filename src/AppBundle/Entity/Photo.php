@@ -10,18 +10,15 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use AppBundle\Entity\Gallery;
 use AppBundle\Libs\Utils;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File;
 
 
 /**
  * @ORM\Table(name="photos")
  * @ORM\Entity
- * @Vich\Uploadable
  */
 class Photo
 {
@@ -40,8 +37,7 @@ class Photo
     private $slug;
 
     /**
-     * @Vich\UploadableField(mapping="gallery_image", fileNameProperty="imageName")
-     * @var File
+     * @var UploadedFile
      */
     private $imageFile;
 
@@ -54,9 +50,9 @@ class Photo
     private $imageName;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="float")
      *
-     * @var integer
+     * @var float
      */
     private $imageSize;
 
@@ -66,6 +62,16 @@ class Photo
      * @var DateTime
      */
     private $uploadAt;
+
+    /**
+     * @var Gallery
+     *
+     * @ORM\ManyToOne(targetEntity="Gallery", inversedBy="photos")
+     * @ORM\JoinColumn(name="gallery_id", referencedColumnName="id")
+     **/
+    private $gallery;
+
+
 
     /**
      * @return DateTime
@@ -83,14 +89,6 @@ class Photo
         $this->uploadAt = $uploadAt;
     }
 
-    /**
-     * @var Gallery
-     *
-     * @ORM\ManyToOne(targetEntity="Gallery", inversedBy="photos")
-     **/
-    private $gallery;
-
-
 
     /**
      * Get id
@@ -102,27 +100,28 @@ class Photo
         return $this->id;
     }
 
-
     /**
-     * @param File | UploadedFile $image
-     *
-     * @return Photo
+     * @param UploadedFile $imageFile
+     * @return $this
      */
-    public function setImageFile(File $image = null)
+    public function setImageFile(UploadedFile $imageFile)
     {
-        $this->imageFile = $image;
+        $this->imageFile = $imageFile;
 
-        if ($image) {
+        if ($imageFile) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
-            $this->updatedAt = new DateTime('now');
+            $this->uploadAt = new DateTime('now');
         }
 
         return $this;
     }
 
+
+
+
     /**
-     * @return File|null
+     * @return UploadedFile
      */
     public function getImageFile()
     {
@@ -180,7 +179,7 @@ class Photo
     /**
      * Set imageSize
      *
-     * @param integer $imageSize
+     * @param float $imageSize
      *
      * @return Photo
      */
@@ -194,7 +193,7 @@ class Photo
     /**
      * Get imageSize
      *
-     * @return integer
+     * @return float
      */
     public function getImageSize()
     {
