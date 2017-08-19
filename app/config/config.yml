@@ -114,7 +114,7 @@ easy_admin:
                 - { property: 'uploadAt' }
         new:
             fields:
-                - { property: 'imageFile',type: 'file' }
+                - { property: 'imageFile',type: 'file', type_options: { required: true }}
                 - { property: 'gallery' }
         edit:
             fields:

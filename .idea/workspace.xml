@@ -2,26 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eda0a866-918a-4c71-aa07-7f2ee8968b46" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Event/Listener/PhotoUploadListener.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Service/FileMover.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Service/LocalFilesystemFileMover.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Service/PhotoFilePathHelper.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/EasyAdmin/PhotoController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/images/galleries/111517.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/images/galleries/2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/images/galleries/20341.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/images/galleries/599202c0c095f.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/images/galleries/59920f46c1edc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/images/galleries/79380.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/KarateRzeszów.iml" afterPath="$PROJECT_DIR$/.idea/KarateRzeszów.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/images/galleries/504a124614_swieta_racja.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/services.yml" afterPath="$PROJECT_DIR$/app/config/services.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Photo.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Photo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Gallery.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Gallery.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,10 +23,22 @@
       <file leaf-file-name="Photo.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Photo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
+            <state relative-caret-position="1375">
               <caret line="51" column="7" lean-forward="false" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
               <folding>
                 <element signature="e#118#166#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gallery.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Gallery.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="155">
+              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+              <folding>
+                <element signature="e#36#49#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,8 +59,8 @@
       <file leaf-file-name="config.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/config/config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="117" column="41" lean-forward="false" selection-start-line="117" selection-start-column="41" selection-end-line="117" selection-end-column="41" />
+            <state relative-caret-position="421">
+              <caret line="117" column="41" lean-forward="true" selection-start-line="117" selection-start-column="41" selection-end-line="117" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -162,7 +158,6 @@
         <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/AdminController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/GalleryType.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Gallery.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/ImageType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/EasyAdmin/GalleryController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/easy_admin/_dropdown_image.html.twig" />
@@ -181,6 +176,7 @@
         <option value="$PROJECT_DIR$/app/config/services.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Event/Listener/PhotoUploadListener.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Photo.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Gallery.php" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
       </list>
     </option>
@@ -686,12 +682,12 @@
       <workItem from="1502860782077" duration="2921000" />
       <workItem from="1502915039740" duration="217000" />
       <workItem from="1502916341893" duration="3140000" />
-      <workItem from="1503001871343" duration="16296000" />
+      <workItem from="1503001871343" duration="17026000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102684000" />
+    <option name="totallyTimeSpent" value="103414000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2409" y="-9" width="1938" height="1048" extended-state="6" />
@@ -1001,16 +997,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Gallery.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="40" column="7" lean-forward="false" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
-          <folding>
-            <element signature="e#36#49#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/EasyAdmin/PhotoController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="395">
@@ -1051,6 +1037,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Photo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1375">
+          <caret line="51" column="7" lean-forward="false" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
+          <folding>
+            <element signature="e#118#166#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Gallery.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <element signature="e#36#49#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Event/Listener/PhotoUploadListener.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -1061,20 +1067,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Photo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="51" column="7" lean-forward="false" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
-          <folding>
-            <element signature="e#118#166#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="117" column="41" lean-forward="false" selection-start-line="117" selection-start-column="41" selection-end-line="117" selection-end-column="41" />
+        <state relative-caret-position="421">
+          <caret line="117" column="41" lean-forward="true" selection-start-line="117" selection-start-column="41" selection-end-line="117" selection-end-column="41" />
           <folding />
         </state>
       </provider>

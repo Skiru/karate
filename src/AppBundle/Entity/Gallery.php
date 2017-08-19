@@ -36,7 +36,7 @@ class Gallery
     /**
      * @var Photo[]|ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="Photo", mappedBy="gallery", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="Photo", mappedBy="gallery", cascade={"persist"})
      *
      */
     private $photos;
@@ -55,6 +55,7 @@ class Gallery
     public function __construct()
     {
         $this->photos = new ArrayCollection();
+        $this->setUpdatedAt(new DateTime('now'));
     }
 
     /**
