@@ -12,15 +12,25 @@ services:
     app.service.photo_file_path_helper:
         class: AppBundle\Service\PhotoFilePathHelper
         arguments:
-            - "%kernel.root_dir%/../web/uploads/images/galleries/"
+            - "%photo_file_path%"
+
+    app.service.local_filesystem_file_deleter:
+        class: AppBundle\Service\LocalFilesystemFileDeleter
+        arguments:
+            - "@filesystem"
+            - "%photo_file_path%"
 
     app.doctrine_event_listener.photo_upload_listener:
         class: AppBundle\Event\Listener\PhotoUploadListener
         arguments:
             - "@app.service.local_filesystem_file_mover"
             - "@app.service.photo_file_path_helper"
+            - "@app.service.local_filesystem_file_deleter"
         tags:
             - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preRemove }
+#            - { name: doctrine.event_listener, event: preUpdate }
+
 
 
 

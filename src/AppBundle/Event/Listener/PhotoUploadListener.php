@@ -5,6 +5,7 @@ namespace AppBundle\Event\Listener;
 
 use AppBundle\Entity\Photo;
 use AppBundle\Libs\Utils;
+use AppBundle\Service\FileDeleter;
 use AppBundle\Service\LocalFilesystemFileMover;
 use AppBundle\Service\PhotoFilePathHelper;
 use Doctrine\ORM\Event\LifecycleEventArgs;
@@ -20,15 +21,26 @@ class PhotoUploadListener
      * @var PhotoFilePathHelper
      */
     private $photoFilePathHelper;
+    /**
+     * @var FileDeleter
+     */
+    private $fileDeleter;
 
-    public function __construct(LocalFilesystemFileMover $fileMover, PhotoFilePathHelper $photoFilePathHelper)
+    public function __construct(
+        LocalFilesystemFileMover $fileMover,
+        PhotoFilePathHelper $photoFilePathHelper,
+        FileDeleter $fileDeleter
+    )
     {
         $this->fileMover=$fileMover;
         $this->photoFilePathHelper = $photoFilePathHelper;
+        $this->fileDeleter = $fileDeleter;
     }
 
     public function prePersist(LifecycleEventArgs $eventArgs) {
-
+        /**
+         * @var $entity Photo
+         */
         $entity = $eventArgs->getEntity();
 
         // if not Photo entity return false
@@ -36,9 +48,7 @@ class PhotoUploadListener
             return false;
         }
 
-        /**
-         * @var $entity Photo
-         */
+
 
         //get access to the file
         $file = $entity->getImageFile();
@@ -64,13 +74,32 @@ class PhotoUploadListener
           $file->getClientOriginalName()
         );
 
-
-
-
         return true;
     }
 
     public function preUpdate(PreUpdateEventArgs $eventArgs) {
+
+
+    }
+
+
+    public function preRemove(LifecycleEventArgs $eventArgs) {
+
+        /**
+         * @var $entity Photo
+         */
+        $entity = $eventArgs->getEntity();
+
+        // if not Photo entity return false
+        if (false === $eventArgs->getEntity() instanceof Photo) {
+            return false;
+        }
+
+        $entity->setImageFile(null);
+        $this->fileDeleter->delete(
+            $entity->getImageName()
+        );
+
 
     }
 

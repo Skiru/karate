@@ -101,10 +101,10 @@ class Photo
     }
 
     /**
-     * @param UploadedFile $imageFile
+     * @param UploadedFile|null $imageFile
      * @return $this
      */
-    public function setImageFile(UploadedFile $imageFile)
+    public function setImageFile(UploadedFile $imageFile = null)
     {
         $this->imageFile = $imageFile;
 
