@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="header-title">{{ headerTitle }} <span class="head-line"></span></div>
+
+    {% for instructor in instructors %}
+        <div class="col-xs-12 col-md-6 instructor">
+            <img class="img-responsive rounded-image" src="{{ asset('images/instructors/'~ instructor.avatar) }}" alt="Joanna Zachara">
+        <div class="text-centered">
+            {{ instructor.tytul }} <strong>{{ instructor.imie }}&nbsp;{{ instructor.nazwisko }}</strong> <br/>
+            Stopień {{ instructor.stopien }}
+        </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}
