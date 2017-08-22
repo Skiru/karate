@@ -211,7 +211,7 @@ div.categories-list-style{
 
 /*Koniec lista kategorii*/
 
-.nav .links li a, .dropbtn {
+.nawigacja .links li a, .dropbtn {
   display: block;
   color: white;
   text-align: left;
@@ -224,20 +224,20 @@ div.categories-list-style{
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
 }
-.nav .links li a:hover, .dropdown:hover .dropbtn {
+.nawigacja .links li a:hover, .drp-down:hover .dropbtn {
   background-color: red;
 }
-.nav .links li a:before
+.nawigacja .links li a:before
 {
  content: url('../images/kanku16.png');
  margin: 0 5px 0 0;
  padding: 22px 0 22px 0;
 }
 
-.nav li.dropdown {
+.nawigacja li.drp-down {
   display: block;
 }
-.nav .dropdown-content {
+.nawigacja .drp-down-content {
   max-height: 0px;
   position: absolute;
   background-color: #f9f9f9;
@@ -245,7 +245,7 @@ div.categories-list-style{
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
-.nav .dropdown-content a {
+.nawigacja .drp-down-content a {
   color: #0d0d0d !important;
   padding: 12px 16px;
   text-decoration: none;
@@ -253,7 +253,7 @@ div.categories-list-style{
   text-align: left;
 
 }
-.nav .dropdown-content a:hover
+.nawigacja .drp-down-content a:hover
 {
   background-color: rgb(235,235,235) !important;
   box-shadow: inset 5px 0 0 -1px red;
@@ -274,7 +274,7 @@ div.categories-list-style{
   content: '\25bc';
 }
 
-.nav .dropdown:hover .dropdown-content{
+.nawigacja .drp-down:hover .drp-down-content{
   max-height: 600px;
   -webkit-transition: max-height 0.4s ease-in;
   -moz-transition: max-height 0.4s ease-in;
@@ -282,7 +282,7 @@ div.categories-list-style{
   transition: max-height 0.4s ease-in;
   z-index: 100;
 }
-.nav .dropbtn:focus ~ .dropdown-content{
+.nawigacja .dropbtn:focus ~ .drp-down-content{
   max-height: 600px;
   -webkit-transition: max-height 0.3s ease-in;
   -moz-transition: max-height 0.3s ease-in;
@@ -322,7 +322,7 @@ li.active a:after{
 	color: white;
 	padding: 12px 14px;
 }
-.dropdown-content > label{
+.drp-down-content > label{
   color: #555555;
   font-size: .4em;
   padding: .3rem 0px .3rem 12px;
@@ -1631,7 +1631,7 @@ footer .autors{
   padding-right: 2px;
 }
 /*hideing navigation*/
-.nav{
+.nawigacja{
   display: none !important;
 }
 

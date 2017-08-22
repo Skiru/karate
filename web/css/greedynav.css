@@ -85,7 +85,7 @@ nav.greedy ul.hidden-links{
   margin:0;
   list-style-type: none;
 }
-nav.greedy ul.hidden-links .dropdown-content
+nav.greedy ul.hidden-links .drp-down-content
 {
   right: 300px;
   margin-top: -50px;
@@ -107,14 +107,14 @@ nav.greedy ul.hidden-links li{
 nav.greedy ul.hidden-links li a{
     color: black;
     font: .9em/50px Verdana;
-    padding: 0px 10px;
+    padding: 0 10px;
     text-decoration: none;
     display: block;
     text-align: left;  
 }
 nav.greedy ul.hidden-links li a:before
 {
-   content: url('/img/kanku16.png');
+   content: url('../images/kanku16.png');
    margin: 0px 5px 0 0;
 }
 
@@ -134,7 +134,7 @@ nav.greedy ul.hidden-links .active:after
   top:  50%;
   height:  15px;
   width:  15px;
-  margin: -7.5px -7.5px 0px 0px;
+  margin: -7.5px -7.5px 0 0;
   background-color: red;
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
@@ -153,7 +153,7 @@ nav.greedy ul.hidden-links .active a:after
 
 nav.greedy ul.hidden-links .active a:before
 {
-  content: url('/img/kanku16.png') !important;
+  content: url('../images/kanku16.png') !important;
 }
 
 nav.greedy ul.hidden-links li a.smaller
@@ -180,7 +180,7 @@ nav.greedy ul.hidden-links li a:hover{
   margin:0;
   list-style-type: none;
   }
-  nav.greedy ul.hidden-links .dropdown-content
+  nav.greedy ul.hidden-links .drp-down-content
   {
   position: relative;
   max-width: 350px;
@@ -188,7 +188,7 @@ nav.greedy ul.hidden-links li a:hover{
   right:0 !important;
 
   }
-  nav.greedy ul.hidden-links .dropdown-content li:hover{
+  nav.greedy ul.hidden-links .drp-down-content li:hover{
   
   box-sizing: border-box;
   background-color: rgb(235,235,235) !important; 
