@@ -40,6 +40,7 @@ class FileTransformer implements DataTransformerInterface
      * Converts the data from the form submission to a format that can be used in code
      *
      * @var array $data
+     * @return mixed
      */
     public function reverseTransform($data)
     {

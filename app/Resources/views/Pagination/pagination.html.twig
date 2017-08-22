@@ -14,72 +14,70 @@
  */
 #}
 
+<div class="main-container"></div>
 {% if pageCount > 1 %}
-    <ul class="pagination">
+    <ul class="stronnicowanie">
 
-    {% if previous is defined %}
-        <li>
-            <a rel="prev" href="{{ path(route, query|merge({(pageParameterName): previous})) }}">&laquo;&nbsp;{{ 'label_previous'|trans({}, 'KnpPaginatorBundle') }}</a>
-        </li>
-    {% else %}
-        <li class="disabled">
-            <span>&laquo;&nbsp;{{ 'label_previous'|trans({}, 'KnpPaginatorBundle') }}</span>
-        </li>
-    {% endif %}
-
-    {% if startPage > 1 %}
-        <li>
-            <a href="{{ path(route, query|merge({(pageParameterName): 1})) }}">1</a>
-        </li>
-        {% if startPage == 3 %}
-            <li>
-                <a href="{{ path(route, query|merge({(pageParameterName): 2})) }}">2</a>
-            </li>
-        {% elseif startPage != 2 %}
-        <li class="disabled">
-            <span>&hellip;</span>
-        </li>
-        {% endif %}
-    {% endif %}
-
-    {% for page in pagesInRange %}
-        {% if page != current %}
-            <li>
-                <a href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a>
-            </li>
+        {% if previous is defined %}
+            <a rel="prev" href="{{ path(route, query|merge({(pageParameterName): previous})) }}"><li class="hvr-sweep-to-top"><span class="fa fa-chevron-circle-left"></span> &nbsp;{{ 'label_previous'|trans({}, 'KnpPaginatorBundle') }} </li></a>
         {% else %}
-            <li class="active">
-                <span>{{ page }}</span>
+            <li class="disabled">
+                <span class="fa fa-chevron-circle-left"></span>&nbsp {{ 'label_previous'|trans({}, 'KnpPaginatorBundle') }}
             </li>
         {% endif %}
 
-    {% endfor %}
+        {% if startPage > 1 %}
 
-    {% if pageCount > endPage %}
-        {% if pageCount > (endPage + 1) %}
-            {% if pageCount > (endPage + 2) %}
+            <a href="{{ path(route, query|merge({(pageParameterName): 1})) }}"><li class="hvr-sweep-to-top">1</li></a>
+
+            {% if startPage == 3 %}
+
+                <a href="{{ path(route, query|merge({(pageParameterName): 2})) }}"><li class="hvr-sweep-to-top">2</li></a>
+
+            {% elseif startPage != 2 %}
                 <li class="disabled">
                     <span>&hellip;</span>
                 </li>
-            {% else %}
-                <li>
-                    <a href="{{ path(route, query|merge({(pageParameterName): (pageCount - 1)})) }}">{{ pageCount -1 }}</a>
-                </li>
             {% endif %}
         {% endif %}
-        <li>
-            <a href="{{ path(route, query|merge({(pageParameterName): pageCount})) }}">{{ pageCount }}</a>
-        </li>
-    {% endif %}
 
-    {% if next is defined %}
-        <li>
-            <a rel="next" href="{{ path(route, query|merge({(pageParameterName): next})) }}">{{ 'label_next'|trans({}, 'KnpPaginatorBundle') }}&nbsp;&raquo;</a>
-        </li>
-    {% else %}
-        <li class="disabled">
-            <span>{{ 'label_next'|trans({}, 'KnpPaginatorBundle') }}&nbsp;&raquo;</span>
-        </li>
-    {% endif %}
+        {% for page in pagesInRange %}
+            {% if page != current %}
+
+                <a href="{{ path(route, query|merge({(pageParameterName): page})) }}"><li class="hvr-sweep-to-top">{{ page }}</li></a>
+
+            {% else %}
+                   <li class="current-page">{{ page }}</li>
+            {% endif %}
+
+        {% endfor %}
+
+        {% if pageCount > endPage %}
+            {% if pageCount > (endPage + 1) %}
+                {% if pageCount > (endPage + 2) %}
+                    <li class="disabled">
+                        <span>&hellip;</span>
+                    </li>
+                {% else %}
+
+                    <a href="{{ path(route, query|merge({(pageParameterName): (pageCount - 1)})) }}"><li class="hvr-sweep-to-top">{{ pageCount -1 }}</li></a>
+
+                {% endif %}
+            {% endif %}
+
+                <a href="{{ path(route, query|merge({(pageParameterName): pageCount})) }}"><li class="hvr-sweep-to-top">{{ pageCount }}</li></a>
+
+        {% endif %}
+
+        {% if next is defined %}
+
+            <a rel="next" href="{{ path(route, query|merge({(pageParameterName): next})) }}"> <li class="hvr-sweep-to-top">{{ 'label_next'|trans({}, 'KnpPaginatorBundle') }}&nbsp;<span class="fa fa-chevron-circle-right"></span></li></a>
+
+        {% else %}
+            <li class="disabled">
+                {{ 'label_next'|trans({}, 'KnpPaginatorBundle') }}&nbsp;<span class="fa fa-chevron-circle-right"></span>
+            </li>
+        {% endif %}
     </ul>
 {% endif %}
+</div>

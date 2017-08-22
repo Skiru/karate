@@ -65,7 +65,7 @@ class KarateExtension extends \Twig_Extension {
 
     }
 
-    public function tagsCloud($limit = 40, $minFontSize = 1, $maxFontSize = 3) {
+    public function tagsCloud($limit = 30, $minFontSize = 0.9, $maxFontSize = 1.5) {
 
         $tagRepo = $this->doctrine->getRepository('AppBundle:Tag');
         $tagList = $tagRepo->getTagsListOcc();

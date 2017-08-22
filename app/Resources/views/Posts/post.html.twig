@@ -4,22 +4,50 @@
 {% block title %} {{ post.title }} {% endblock %}
 
 {% block content %}
-    <div class="categories">
-        Kategoria:
-        <a href="{{ path('karate_category', {'slug':post.category.slug}) }}" alt="Nazwy kategorii przypisanych do postu">{{ post.category.name }}</a>
-    </div>
+    <article class="container-width">
+        <div class="news">
+            <header>
+                <h1 class="title">{{ post.title }}</h1>
+                <div class="meta-data">
+                    <div class="author">
+                        <span class="fa fa-user"> </span>
+                        Autor <a href="#" alt="Autor postu">{{ post.author }}</a>
 
-    <div class="tags">
-        Tagi:
+                    </div>
+                    <div class="create-date">
+                        <span class="fa fa-clock-o"> </span>
+                        Dodano: {{ post.publishedDate|date('d.m.Y, H:m') }}
+                    </div>
 
-        {% for tag in post.tags %}
-            <a href="{{ path('karate_tag', {'slug':tag.slug}) }}">{{ tag.name }}</a>
-        {% endfor %}
-    </div>
+                    <div class="categories">
+                        Kategoria:
+                        <a href="{{ path('karate_category', {'slug':post.category.slug}) }}" alt="Nazwy kategorii przypisanych do postu">{{ post.category.name }}</a>
+                    </div>
 
-    {{ post.title }}
-    {{ post.author }}
-    {{ post.publishedDate|date('d.m.Y, H:m') }}
-    {{ post.content|raw }}
+                    <div class="tags">
+                        Tagi:
+
+                        {% for tag in post.tags %}
+                            <span class="tags-label label label-info ">
+                                        <a href="{{ path('karate_tag', {'slug':tag.slug}) }}">{{ tag.name }} </a>
+                                    </span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </header>
+
+            <p>
+                {{ post.content|raw }}
+            </p>
+
+
+            <div class="news-link news-link-forward">
+                <a href="{{ path('karate_posts_index') }}" class="btn-green"><span class="fa fa-chevron-circle-left" aria-hidden="true"></span> Powrót </a>
+            </div>
+
+            <div class="clear"></div>
+
+        </div>
+    </article>
 
 {% endblock %}

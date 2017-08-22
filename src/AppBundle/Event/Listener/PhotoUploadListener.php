@@ -51,12 +51,26 @@ class PhotoUploadListener
         );
     }
 
+    /**
+     * @param $entity Photo
+     * @return bool
+     */
     private function upload($entity)
     {
         // if not Photo entity return false
         if (false === $entity instanceof Photo) {
             return false;
         }
+
+        /**
+         * @var $entity Photo
+         */
+        if ($entity->getImageName() !== null) {
+            $this->fileDeleter->delete(
+                $entity->getImageName()
+            );
+        }
+
 
         //get access to the file
         $file = $entity->getImageFile();
@@ -67,20 +81,23 @@ class PhotoUploadListener
             $file->getClientOriginalName()
         );
 
-        $this->fileMover->move($temporaryLocation,$newLocation);
+        $this->fileMover->move(
+            $temporaryLocation,
+            $newLocation
+        );
+
 
         //addition infos setting up for entity before persisting
-        $entity->setSlug(
-            Utils::sluggify($file->getClientOriginalName())
-        );
-
-        $entity->setImageSize(
-            $file->getClientSize()/1048576
-        );
-
-        $entity->setImageName(
-            $file->getClientOriginalName()
-        );
+        $entity
+            ->setImageSize(
+                $file->getClientSize()/1048576
+            )
+            ->setImageName(
+                $file->getClientOriginalName()
+            )->setSlug(
+                Utils::sluggify($file->getClientOriginalName())
+            )
+        ;
 
         return true;
     }
@@ -94,7 +111,7 @@ class PhotoUploadListener
         $entity = $eventArgs->getEntity();
 
         // if not Photo entity return false
-        if (false === $eventArgs->getEntity() instanceof Photo) {
+        if (false === $entity instanceof Photo) {
             return false;
         }
 

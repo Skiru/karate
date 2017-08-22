@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class PostsController extends Controller
 {
-    protected $itemsLimit = 2;
+    protected $itemsLimit = 3;
 
     /**
      * @Route(

@@ -1,6 +1,16 @@
-<h3>Chmura tagów</h3>
-{% for tag in tagsList %}
-    <a style="font-size: {{ tag['fontSize'] }}rem" href="{{ path('karate_tag', {'slug': tag['slug']}) }}">
-        {{ tag['name'] }}
-    </a>
-{% endfor %}
+<div class="widget widget-popular-posts">
+    <h4 class="header-title-small border_animation"> Chmura tagów <span class="head-line"></span></h4>
+    <div class="tagcloud01">
+        <ul>
+            <li>
+                {% for tag in tagsList %}
+                    <a style="font-size: {{ tag['fontSize'] }}em" href="{{ path('karate_tag', {'slug': tag['slug']}) }}">
+                        <span>{{ tag['name'] }}</span>
+                    </a>
+                {% endfor %}
+
+            </li>
+        </ul>
+
+    </div>
+</div>

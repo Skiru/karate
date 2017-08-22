@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Traits\Timestampable;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -9,9 +10,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Table(name="galleries")
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
 class Gallery
 {
+    use Timestampable;
 
     /**
      * @ORM\Id
@@ -41,12 +44,6 @@ class Gallery
      */
     private $photos;
 
-    /**
-     * @ORM\Column(type="datetime")
-     *
-     * @var DateTime
-     */
-    private $updatedAt;
 
 
     /**
@@ -55,7 +52,7 @@ class Gallery
     public function __construct()
     {
         $this->photos = new ArrayCollection();
-        $this->setUpdatedAt(new DateTime('now'));
+        $this->setUpdatedAt();
     }
 
     /**
@@ -158,30 +155,5 @@ class Gallery
     function __toString()
     {
         return $this->name;
-    }
-
-
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     *
-     * @return Gallery
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
     }
 }

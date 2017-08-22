@@ -8,6 +8,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Traits\Timestampable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use AppBundle\Entity\Gallery;
@@ -19,10 +20,12 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Table(name="photos")
  * @ORM\Entity
- * @ORM\HasLifeCycleCallbacks
+ * @ORM\HasLifecycleCallbacks
  */
 class Photo
 {
+    use Timestampable;
+
     /**
      * @var int
      *
@@ -57,12 +60,6 @@ class Photo
      */
     private $imageSize;
 
-    /**
-     * @ORM\Column(type="datetime")
-     *
-     * @var DateTime
-     */
-    private $uploadAt;
 
     /**
      * @var Gallery
@@ -71,28 +68,6 @@ class Photo
      * @ORM\JoinColumn(name="gallery_id", referencedColumnName="id")
      **/
     private $gallery;
-
-
-
-    /**
-     * @return DateTime
-     */
-    public function getUploadAt()
-    {
-        return $this->uploadAt;
-    }
-
-    /**
-     * @ORM\PrePersist
-     *
-     * @param Photo
-     * @return $this
-     */
-    public function setUploadAt()
-    {
-        $this->uploadAt = new DateTime('now');
-        return $this;
-    }
 
 
     /**
@@ -116,7 +91,7 @@ class Photo
         if ($imageFile) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
-            $this->uploadAt = new DateTime('now');
+            $this->setUpdatedAt();
         }
 
         return $this;

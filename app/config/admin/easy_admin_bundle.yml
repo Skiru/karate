@@ -1,0 +1,28 @@
+easy_admin:
+    site_name: Karate Kyokushin Rzeszów
+    design:
+      brand_color: '#de1b1b'
+    entities:
+      Category:
+        class: AppBundle\Entity\Category
+      Post:
+        class: AppBundle\Entity\Post
+      User:
+        class: AppBundle\Entity\User
+      Photo:
+        class: AppBundle\Entity\Photo
+        list:
+            fields:
+                - { property: 'imageName', type: 'image', base_path: '%app.path.gallery_image%', label: 'Image' }
+                - { property: 'slug' }
+                - { property: 'imageSize', format: "%0.2f", label: 'Rozmiar (MB)' }
+                - { property: 'gallery' }
+                - { property: 'updatedAt' }
+        form:
+            fields:
+                - { property: 'imageFile',type: AppBundle\Form\Type\CustomFileType, type_options: { required: true } }
+                - { property: 'slug'}
+                - { property: 'gallery' }
+
+      Gallery:
+        class: AppBundle\Entity\Gallery

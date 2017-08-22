@@ -2,38 +2,210 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript" src="{{ asset('js/dropzone.js') }}"></script>
+        <title>{% block title %}Kyoukishin Karate Rzeszów Strona Domowa{% endblock %}</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- Keywords for website -->
+        <meta name="keywords" content="karate, kyoukushin, rzeszów, dojo, trening, IKO, karate kyokushin">
+        <!-- Website description -->
+        <meta name ="description" content="Strona Internetowa poświęcona Rzeszowskiemu klubowi Karate, znajdziesz tutaj aktualności, rozkład treningów, naszych intruktorów oraz bogata galerie zdjec. Zapraszamy Rzeszowski Klub Karate Kyoukushin. OSU!">
+        <!-- Always have to display in x1 scale -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS Style sheets -->
+        <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+        <!-- For main page -->
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <!-- Greedy navigation plugin -->
+        <link href="{{ asset('css/greedynav.css') }}" rel="stylesheet">
+        <!-- Pushy CSS -->
+        <link rel="stylesheet" href="{{ asset('css/pushy.css') }}">
+        <!-- Font awesome -->
+        <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/font-awesome.css') }}">
+
+
+        <!-- JQuery scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <!-- ScrollToTop -->
+        <script src="{{ asset('js/jquery.scrollTo.min.js') }}"></script>
+        <!-- Navigation sheet -->
+        <script type="text/javascript" src="{{ asset('js/greedynav.js') }}"></script>
+        <!-- Manu stays sticky at above 500+ scrooling -->
+        <script src="{{ asset('js/sticky.js') }}"></script>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
 
         {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
         {% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="icon" type="image/png" href="{{ asset('images/kanku16.png') }}" />
     </head>
-    <body>
+    <body class="clearfix">
+    <div class="baner"></div>
 
-        {% block body %}
+    {% block navigation_block %}
+        <nav class="nav greedy">
+            <ul class="links">
+                <li class ="active"><a href="{{ path('karate_posts_index') }}">Strona początkowa</a></li>
+                <li><a href="#">Instruktorzy</a></li>
+                <li><a href="#">Regulamin</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Rozkład treningów</a>
+                    <div class="dropdown-content">
+                        <a href="#">treningi Rzeszów</a>
+                        <a href="#">treningi Hyżne</a>
+                    </div>
+                </li>
+                <li><a href="#">Wymagania egzaminacyjne</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Karate Kyokushin</a>
+                    <div class="dropdown-content">
+                        <a href="#">Historia</a>
+                        <a href="#">Przysięga</a>
+                        <a href="#">Kata</a>
+                        <a href="#">Słownik</a>
+                        <a href="#">Kalendarz imprez</a>
+                        <a href="#" class="smaller">Ciekawostki z karate Kyokushin</a>
+                        <a href="#">Dietetyka sportowa</a>
+                    </div>
+                </li>
+                <li><a href="#">Galeria</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Kanał YouTube</a>
+                    <div class="dropdown-content">
+                        <a href="#" class="special">Linki</a>
+                    </div>
+                </li>
+                <li><a href="#">Kontakt</a></li>
+            </ul>
+            <button>Rozwiń</button>
+            <ul class='hidden-links hidden'></ul>
+        </nav>
+    {% endblock %}
 
+    {% block baner %}
+        <header class="text">
+            <div class="left_logo">
+                <img src="{{ asset('images/logo.png') }}" alt="">
+            </div>
+            <div class="left">
+                <div class="left-items">
+                    <h2>RZESZOWSKI KLUB KARATE </h2>
+                    <h2 class="czerwony"> KYOKUSHIN</h2>
+                </div>
+            </div>
+
+            <div class="right">
+                <img src="{{ asset('images/logo2.png') }}" alt="">
+            </div>
+            <div class="clear"></div><!-- clearing a baner float -->
+            <div class="text2">&#8222;GDY NIE DAJESZ RADY, A WALCZYSZ DALEJ... ZACZYNA SIĘ KYOKUSHIN&#8221;</div>
+        </header>
+    {% endblock %}
+
+    {% block search_block %}
+        <div class="search-row">
             <div class="container">
+                    <div class="container-1 pull-right">
+                        <span class="icon"><i class="fa fa-search"></i></span>
+                        <form action="{{ path('karate_search') }}">
+                            <input type="text" value="{{ searchParam is defined ? searchParam : '' }}" name="search" id="search" placeholder="Wyszukaj">
+                        </form>
+                    </div>
+            </div>
+        </div>
+    {% endblock %}
 
-                <h1 class="text-center">Witamy na stronie karate</h1>
+
+    <!-- Content begin -->
+    <main class="container bg_color">
+        <div class="left-container">
+            <div class="left-container-item">
+                <h4 class="header-title-small border_animation">Sponsorzy <span class="head-line"></span> </h4>
+                <div class="hedom">
+                    <a href="#"> <img src="{{ asset('images/hedom.png') }}" alt="Hedom"> </a>
+                </div>
+                {#<h6>#}
+                    {#Chciałbyś, zasponsorować nasz klub i otrzymać miejsce reklamowe? Napisz do nas!#}
+                {#</h6>#}
+            </div>
+
+            <div class="left-container-item">
+                <h4 class="header-title-small border_animation">Kyokushin video <span class="head-line"></span></h4>
+                <div class="video-responsive">
+                    <div>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/phVnLAOMF98" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="left-container-item">
+                {{ print_categories_list() }}
+            </div>
+            <div class="left-container-item">
+                {{ print_tags_cloud() }}
+            </div>
+
+        </div>
+        <!-- ./left-container -->
+        <div class="main-container">
+            <div class="wytnij">
+                <img src="{{ asset('images/zapisy2.png') }}" class="zapisy_png"/>
+            </div>
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+
+        <!-- ./main-container -->
+        <div class="clear"></div>
+    </main>
 
 
 
-                {% block content %}
+    <footer class="footer-wrap">
+        {% block footer %}
+            <div class="container">
+                <div class="triple sm">
+                    <ul>
+                        <h3 class="footer_heading"><i class="fa fa-globe" aria-hidden="true"></i> Klub</h3>
+                        <li><a href="{{ path('karate_posts_index') }}">Strona początkowa</a></li>
+                        <li><a href="#">Rozkład treningów</a></li>
+                        <li><a href="#">Kalendarz imprez</a></li>
+                        <li><a href="#">Instruktorzy</a></li>
+                    </ul>
 
-                {% endblock %}
-
+                </div>
+                <div class="triple bg">
+                    <ul>
+                        <h3 class="footer_heading"><i class="fa fa-thumbs-up" aria-hidden="true"></i> Karate</h3>
+                        <li><a href="#">Oddziały</a></li>
+                        <li><a href="#">Galeria</a></li>
+                        <li><a href="#">Kata</a></li>
+                        <li><a href="#">Historia</a></li>
+                        <li><a href="#">Przysięga dojo</a></li>
+                    </ul>
+                </div>
+                <div class="triple sm">
+                    <ul>
+                        <h3 class="footer_heading"><i class="fa fa-youtube-play" aria-hidden="true"></i> Social</h3>
+                        <li><a href="#">Materiały</a></li>
+                        <li><a href="#">Linki</a></li>
+                        <li><a href="#">Kontakt</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+                <div class="autors">Created by Mateusz Kozioł only for private usage!</div>
             </div>
         {% endblock %}
-
-        {% block javascripts %}{% endblock %}
-    </body>
-    <footer>
-        {% block footer %}
-
-        {% endblock %}
     </footer>
+
+    <!-- FOOTER ENDS -->
+    <div class="block"></div>
+
+
+    {#<!-- Pushy JS -->#}
+    <script src="{{ asset('js/pushy.js') }}"></script>
+
+    </body>
 </html>
