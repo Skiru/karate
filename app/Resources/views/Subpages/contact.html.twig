@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ headerTitle }}
+{% endblock %}
+
+{% block content %}
+    <h4 class="header-title border_animation">Znajdziesz nas tutaj <span class="head-line"></span> </h4>
+    <div class="map-responsive">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2562.5765344474466!2d22.020355816062033!3d50.03803027942057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473cfafaaef618e3%3A0x4ff1a3b78be96447!2sLwowska+6%2C+Rzesz%C3%B3w!5e0!3m2!1spl!2spl!4v1479771326116" width="1200" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+    <div class="header-title border_animation">Dane kontaktowe<span class="head-line"></span></div>
+
+    <div class="col-xs-12 col-md-6 contact-item">
+        <h4 class="header-title-info border-underline-red">Rzeszowski Klub Karate Kyokushin <span class="head-line"></span>  </span></h4>
+        <div class="text-centered"><img src="{{ asset('images/logo_small.png') }}"></div>
+
+        <h5 class="contact-item-text"><span class="fa fa-globe fa-red"></span><strong> Adres: </strong>ul. Podhalańska 2/49 35-622 Rzeszów</h5>
+        <h5 class="contact-item-text"><span class="fa fa-id-card fa-red"></span><strong> NIP: </strong>813-30-44-851</h5>
+
+        <h5 class="contact-item-text"><span class="fa fa-phone fa-red"></span><strong> tel. </strong>692-422-501</h5>
+
+        <h5 class="contact-item-text"><span class="fa fa-envelope fa-red"></span><strong> email: </strong>info@kyokushin.rzeszow.pl</h5>
+
+        <h5 class="contact-item-text"><span class="fa fa-credit-card fa-red"></span><strong> Konto bankowe: <br/></strong>
+            Credit Agricole Bank Polska S.A. </br>
+            12 1940 1076 3102 5991 0000 0000
+        </h5>
+    </div>
+
+    <div class="col-xs-12 col-md-6 contact-item">
+        <h4 class ="header-title-info border-underline-red">Zarzad <span class="head-line"></span>  </span></h4>
+
+        <h5 class="contact-item-text"><span class="fa fa-user-circle fa-red"></span><strong> Prezes </strong>Marian Sokół (4 dan)</h5>
+
+        <h5 class="contact-item-text"><span class="fa fa-user-circle-o fa-red"></span><strong> Wiceprezes </strong>Dariusz Hezner (1 kyu)</h5>
+
+        <h5 class="contact-item-text"><span class="fa fa-user-circle-o fa-red"></span><strong> Wiceprezes </strong>Andrzej Kruk (3 dan)</h5>
+
+        <h5 class="contact-item-text"><span class="fa fa-dollar fa-red"></span><strong> Skarbnik </strong>Agnieszka Hezner</h5>
+
+        <h5 class="contact-item-text"><span class="fa fa-user-secret fa-red"></span><strong> Sekretarz </strong>Łukasz Sokół</h5>
+
+    </div>
+
+{% endblock %}

@@ -16,7 +16,7 @@ class SubpageController extends Controller
 {
     /**
      * @Route(
-     *     "/instructors",
+     *     "/instruktorzy",
      *     name="karate_instructors"
      * )
      * @Method("GET")
@@ -67,5 +67,35 @@ class SubpageController extends Controller
             'headerTitle' => 'Instruktorzy Karate Kyokushin Rzeszów'
         ]);
     }
+
+    /**
+     * @Route(
+     *     "/regulamin",
+     *     name="karate_regulations"
+     * )
+     * @Method("GET")
+     */
+    public function regulationsAction(){
+        return $this->render('Subpages/regulations.html.twig',[
+            'headerTitle' => 'Regulamin Karate Kyokushin Rzeszów'
+        ]);
+    }
+
+
+    /**
+     * @Route(
+     *     "/kontakt",
+     *     name = "karate_contact"
+     * )
+     * @Method("GET")
+     */
+    public function contactAction(){
+
+        return $this->render('Subpages/contact.html.twig',[
+            'headerTitle' => 'Kontakt Karate Kyokushin Rzeszów'
+        ]);
+    }
+
+
 
 }

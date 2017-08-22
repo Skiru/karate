@@ -47,8 +47,8 @@
         <nav class="nawigacja greedy">
             <ul class="links">
                 <li class ="active"><a href="{{ path('karate_posts_index') }}">Strona początkowa</a></li>
-                <li><a href="#">Instruktorzy</a></li>
-                <li><a href="#">Regulamin</a></li>
+                <li><a href="{{ path('karate_instructors') }}">Instruktorzy</a></li>
+                <li><a href="{{ path('karate_regulations') }}">Regulamin</a></li>
                 <li class="drp-down">
                     <a href="#" class="dropbtn">Rozkład treningów</a>
                     <div class="drp-down-content">
@@ -76,20 +76,19 @@
                         <a href="#" class="special">Linki</a>
                     </div>
                 </li>
-                <li><a href="#">Kontakt</a></li>
+                <li><a href="{{ path('karate_contact') }}">Kontakt</a></li>
             </ul>
             <button>Rozwiń</button>
             <ul class='hidden-links hidden'></ul>
         </nav>
     {% endblock %}
-    {% block resposniwe_navigation %}
+    {% block responsiwe_navigation %}
         <!-- Responsive mobile navigation -->
         <nav class="pushy pushy-left">
             <ul>
-                <li class="pushy-link"><a href="#">Strona poczatkowa</a></li>
-                <li class="pushy-link"><a href="#">Aktualności</a></li>
-                <li class="pushy-link"><a href="#">Instruktorzy</a></li>
-                <li class="pushy-link"><a href="#">Regulamin</a></li>
+                <li class="pushy-link"><a href="{{ path('karate_posts_index') }}">Strona poczatkowa</a></li>
+                <li class="pushy-link"><a href="{{ path('karate_instructors') }}">Instruktorzy</a></li>
+                <li class="pushy-link"><a href="{{ path('karate_regulations') }}">Regulamin</a></li>
                 <li class="pushy-submenu">
                     <a href="#">Rozkład treningów</a>
                     <ul>
@@ -117,7 +116,7 @@
                         <li class="pushy-link"><a href="#">Linki</a></li>
                     </ul>
                 </li>
-                <li class="pushy-link"><a href="#">Kontakt</a></li>
+                <li class="pushy-link"><a href="{{ path('karate_contact') }}">Kontakt</a></li>
             </ul>
         </nav>
 
@@ -217,7 +216,7 @@
                         <li><a href="{{ path('karate_posts_index') }}">Strona początkowa</a></li>
                         <li><a href="#">Rozkład treningów</a></li>
                         <li><a href="#">Kalendarz imprez</a></li>
-                        <li><a href="#">Instruktorzy</a></li>
+                        <li><a href="{{ path('karate_instructors') }}">Instruktorzy</a></li>
                     </ul>
 
                 </div>
@@ -236,7 +235,7 @@
                         <h3 class="footer_heading"><i class="fa fa-youtube-play" aria-hidden="true"></i> Social</h3>
                         <li><a href="#">Materiały</a></li>
                         <li><a href="#">Linki</a></li>
-                        <li><a href="#">Kontakt</a></li>
+                        <li><a href="{{ path('karate_contact') }}">Kontakt</a></li>
                         <li><a href="#">YouTube</a></li>
                     </ul>
                 </div>
