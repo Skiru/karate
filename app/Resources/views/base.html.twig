@@ -41,6 +41,7 @@
     </head>
     <body class="clearfix">
     <div class="baner"></div>
+    <a href="#" class="scrollup"></a>
 
     {% block navigation_block %}
         <nav class="nawigacja greedy">
@@ -80,6 +81,52 @@
             <button>Rozwiń</button>
             <ul class='hidden-links hidden'></ul>
         </nav>
+    {% endblock %}
+    {% block resposniwe_navigation %}
+        <!-- Responsive mobile navigation -->
+        <nav class="pushy pushy-left">
+            <ul>
+                <li class="pushy-link"><a href="#">Strona poczatkowa</a></li>
+                <li class="pushy-link"><a href="#">Aktualności</a></li>
+                <li class="pushy-link"><a href="#">Instruktorzy</a></li>
+                <li class="pushy-link"><a href="#">Regulamin</a></li>
+                <li class="pushy-submenu">
+                    <a href="#">Rozkład treningów</a>
+                    <ul>
+                        <li class="pushy-link"><a href="#">Treningi Rzeszów</a></li>
+                        <li class="pushy-link"><a href="#">Treningi Hyżne</a></li>
+                    </ul>
+                </li>
+                <li class="pushy-link"><a href="#">Wymagania egzaminacyjne</a></li>
+                <li class="pushy-submenu">
+                    <a href="#">Karate Kyokushin</a>
+                    <ul>
+                        <li class="pushy-link"><a href="#">Historia</a></li>
+                        <li class="pushy-link"><a href="#">Przysięga</a></li>
+                        <li class="pushy-link"><a href="#">Kata</a></li>
+                        <li class="pushy-link"><a href="#">Słownik</a></li>
+                        <li class="pushy-link"><a href="#">Kalendarz Imprez</a></li>
+                        <li class="pushy-link"><a href="#">Ciekawostki z karate Kyokushin</a></li>
+                        <li class="pushy-link"><a href="#">Dietetyka sportowa</a></li>
+                    </ul>
+                </li>
+                <li class="pushy-link"><a href="#">Galeria</a></li>
+                <li class="pushy-submenu">
+                    <a href="#">Kanał Youtube</a>
+                    <ul>
+                        <li class="pushy-link"><a href="#">Linki</a></li>
+                    </ul>
+                </li>
+                <li class="pushy-link"><a href="#">Kontakt</a></li>
+            </ul>
+        </nav>
+
+        <!-- Site Overlay while mobile -->
+        <div class="site-overlay"></div>
+
+        <div class="menu-top">
+            <div class="menu-btn"><i class="fa fa-reorder" aria-hidden="true"></i></div>
+        </div>
     {% endblock %}
 
     {% block baner %}
@@ -161,8 +208,6 @@
         <div class="clear"></div>
     </main>
 
-
-
     <footer class="footer-wrap">
         {% block footer %}
             <div class="container">
@@ -202,8 +247,8 @@
 
     <!-- FOOTER ENDS -->
     <div class="block"></div>
-
-
+    {#<!-- ScrollUp JS -->#}
+    <script src="{{ asset('js/scrollup.js') }}"></script>
     {#<!-- Pushy JS -->#}
     <script src="{{ asset('js/pushy.js') }}"></script>
 

@@ -187,7 +187,8 @@ body{
 
 /*Lista kategorii*/
 div.categories-list-style{
-
+  background-color: rgba(227,27,27,0.8); /*#DE1B1B;*/
+  font-size: .9em;
 }
 
 .cat-list-item:first-child{
@@ -195,18 +196,22 @@ div.categories-list-style{
 }
 
 .cat-list-item{
-  color: #0f0f0f;
+  color: #fff;
   padding: 16px;
+  text-transform: uppercase;
   display: block;
   border-bottom: 1px solid #ededed;
+  -webkit-transition: all .25s;
+  -moz-transition: all .25s;
+  -ms-transition: all .25s;
+  -o-transition: all .25s;
+  transition: all .25s;
 }
-
 
 .cat-list-item:hover{
-  color: #DE1B1B;
+  background-color: #fff;
+  color: rgba(227,27,27,0.8);
 }
-
-
 
 
 /*Koniec lista kategorii*/
@@ -948,7 +953,7 @@ span.head-line{
  width: 32px;
  height: 32px;
  text-decoration: none;
- background: url("../img/up-arrow.png") no-repeat center;
+ background: url("../images/up-arrow.png") no-repeat center;
  background-size: cover;
  position: fixed;
  right: 20px;
