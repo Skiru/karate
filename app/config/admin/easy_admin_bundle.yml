@@ -1,5 +1,5 @@
 easy_admin:
-    site_name: Karate Kyokushin Rzeszów
+    site_name: Kyokushin Rzeszów
     design:
       brand_color: '#de1b1b'
     entities:
@@ -25,7 +25,7 @@ easy_admin:
         form:
             fields:
                 - { property: 'title', label: 'Tytuł', type_options: { required: true } }
-                - { property: 'content', label: 'Treść aktualności', type_options: { required: true } }
+                - { property: 'content',type: 'ckeditor', label: 'Treść aktualności', type_options: { required: true } }
                 - { property: 'publishedDate', help: 'Data publikacji (pojawienia się na stronie głównej aktulaności) fomrmat: Rok/miesiąć/dzien godzina/minuta', label: 'Data publikacji', type_options: { required: false } }
                 - { property: 'category', label: 'Kategoria aktualności' }
                 - { property: 'tags', label: 'Powiązane tagi' }

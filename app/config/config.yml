@@ -11,6 +11,11 @@ parameters:
     app.path.post_image: /uploads/images/posts
     app.path.gallery_image: /uploads/images/galleries
 
+ivory_ck_editor:
+    configs:
+        my_config:
+            toolbar: full
+
 framework:
     #esi: ~
     translator: { fallbacks: ['%locale%'] }

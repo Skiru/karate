@@ -110,7 +110,7 @@ class KarateExtension extends \Twig_Extension {
     }
 
     public function shorten($text, $length = 200, $wrapTag = 'p') {
-        $text = strip_tags($text);
+//        $text = strip_tags($text);
         $text = substr($text, 0, $length).'[...]';
         $openTag = "<{$wrapTag}>";
         $closeTag = "</{$wrapTag}>";

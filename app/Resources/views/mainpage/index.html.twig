@@ -40,12 +40,8 @@
                     </div>
                  </header>
 
-
-
-
-
                 <p>
-                    {{ post.content|ab_shorten(600) }}
+                    {{ post.content| ab_shorten(400) |raw  }}
                 </p>
 
 
