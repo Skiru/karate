@@ -76,7 +76,8 @@ class UsersFixtures extends AbstractFixture implements OrderedFixtureInterface, 
             $User->setUsername($user['username'])
                 ->setRoles(array($user['roles']))
                 ->setEmail($user['email'])
-                ->setPassword($password);
+                ->setPassword($password)
+                ->setEnabled(true);
 
 
             $this->addReference('user-'.$user['username'], $User);

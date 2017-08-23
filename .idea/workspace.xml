@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eda0a866-918a-4c71-aa07-7f2ee8968b46" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/images/galleries/2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/images/galleries/20341.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/parameters.yml.dist" afterPath="$PROJECT_DIR$/app/config/parameters.yml.dist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/CategoriesFixtures.php" afterPath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/CategoriesFixtures.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/PostsFixtures.php" afterPath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/PostsFixtures.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/TagsFixtures.php" afterPath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/TagsFixtures.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/UsersFixtures.php" afterPath="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/UsersFixtures.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Repository/PostRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/PostRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Service/LocalFilesystemFileDeleter.php" afterPath="$PROJECT_DIR$/src/AppBundle/Service/LocalFilesystemFileDeleter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Service/PhotoFilePathHelper.php" afterPath="$PROJECT_DIR$/src/AppBundle/Service/PhotoFilePathHelper.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,63 +17,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="178">
               <caret line="238" column="56" lean-forward="false" selection-start-line="238" selection-start-column="56" selection-end-line="238" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UsersFixtures.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/UsersFixtures.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-              <folding>
-                <element signature="e#128#154#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Post.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Post.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3285">
-              <caret line="361" column="5" lean-forward="false" selection-start-line="361" selection-start-column="5" selection-end-line="361" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1515">
-              <caret line="6" column="33" lean-forward="false" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CategoriesFixtures.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/CategoriesFixtures.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="717">
-              <caret line="38" column="41" lean-forward="false" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PostsFixtures.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/PostsFixtures.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="80" column="53" lean-forward="false" selection-start-line="80" selection-start-column="53" selection-end-line="80" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -100,10 +37,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostRepository.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PostRepository.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/PostRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
+            <state relative-caret-position="-312">
               <caret line="35" column="40" lean-forward="false" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
               <folding />
             </state>
@@ -248,9 +185,9 @@
         <option value="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/CategoriesFixtures.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/TagsFixtures.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/PostsFixtures.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/UsersFixtures.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/Posts/post.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Repository/PostRepository.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/UsersFixtures.php" />
       </list>
     </option>
   </component>
@@ -786,12 +723,12 @@
       <workItem from="1503387065769" duration="20133000" />
       <workItem from="1503414711075" duration="14090000" />
       <workItem from="1503447047992" duration="8000" />
-      <workItem from="1503481203090" duration="4510000" />
+      <workItem from="1503481203090" duration="5100000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162321000" />
+    <option name="totallyTimeSpent" value="162911000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1552" height="840" extended-state="6" />
@@ -1173,14 +1110,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/CategoriesFixtures.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="717">
-          <caret line="38" column="41" lean-forward="false" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1515">
@@ -1197,24 +1126,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="238" column="56" lean-forward="false" selection-start-line="238" selection-start-column="56" selection-end-line="238" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/UsersFixtures.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding>
-            <element signature="e#128#154#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/Posts/post.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -1225,8 +1136,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Repository/PostRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
+        <state relative-caret-position="-312">
           <caret line="35" column="40" lean-forward="false" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/UsersFixtures.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="80" column="0" lean-forward="true" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding>
+            <element signature="e#128#154#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/DataFixtures/ORM/CategoriesFixtures.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="717">
+          <caret line="38" column="41" lean-forward="false" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="238" column="56" lean-forward="false" selection-start-line="238" selection-start-column="56" selection-end-line="238" selection-end-column="56" />
           <folding />
         </state>
       </provider>
