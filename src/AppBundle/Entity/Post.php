@@ -107,6 +107,7 @@ class Post
      */
     public function __construct()
     {
+        $this->setCreateDate(new \DateTime('now'));
         $this->tags = new ArrayCollection();
     }
 

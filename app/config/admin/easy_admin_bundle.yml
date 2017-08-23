@@ -4,12 +4,37 @@ easy_admin:
       brand_color: '#de1b1b'
     entities:
       Category:
+        label: 'Kategorie'
         class: AppBundle\Entity\Category
+        list:
+            fields:
+                - { property: 'name', label: 'Nazwa kategorii'}
+                - { property: 'posts', label: 'Powiązane posty'}
       Post:
+        label: 'Aktualności'
         class: AppBundle\Entity\Post
+        list:
+            fields:
+                - id
+                - { property: 'title', label: 'Tytuł' }
+                - { property: 'author', label: 'Autor'}
+                - { property: 'createDate', label: 'Data utworzenia' }
+                - { property: 'publishedDate', label: 'Data opublikowania' }
+                - { property: 'category', label: 'Powiązane kategorie' }
+                - { property: 'tags', label: 'Tagi' }
+        form:
+            fields:
+                - { property: 'title', label: 'Tytuł', type_options: { required: true } }
+                - { property: 'content', label: 'Treść aktualności', type_options: { required: true } }
+                - { property: 'publishedDate', help: 'Data publikacji (pojawienia się na stronie głównej aktulaności) fomrmat: Rok/miesiąć/dzien godzina/minuta', label: 'Data publikacji', type_options: { required: false } }
+                - { property: 'category', label: 'Kategoria aktualności' }
+                - { property: 'tags', label: 'Powiązane tagi' }
+                - { property: 'author', label: 'Autor', type_options: { required: true }}
       User:
+        label: 'Użytkownicy'
         class: AppBundle\Entity\User
       Photo:
+        label: 'Zdjęcia'
         class: AppBundle\Entity\Photo
         list:
             fields:
@@ -25,4 +50,5 @@ easy_admin:
                 - { property: 'gallery' }
 
       Gallery:
+        label: 'Galerie'
         class: AppBundle\Entity\Gallery
