@@ -25,16 +25,9 @@ class CategoriesFixtures extends AbstractFixture implements OrderedFixtureInterf
     public function load(ObjectManager $manager)
     {
         $categoriesList = [
-            'egzamin' => 'egzamin karate',
-            'ogloszenie' => 'wiadomosc ogloszenie',
-            'nowosc' => 'zmian w karate',
-            'wazne' => 'wazna wiadomosc',
-            'osobowe' => 'Samoloty osobowe i pasażerskie',
-            'odrzutowe' => 'Samoloty odrzutowe',
-            'wojskowe' => 'Samoloty wojskowe',
-            'kosmiczne' => 'Promy kosmiczne',
-            'tajne' => 'Tajne rozwiązania'
-            //'nowa' => 'Nowa kategoria'
+            'egzamin' => 'egzaminy karate',
+            'ogloszenie' => 'ogłoszenie',
+            'treningi' => 'plan treningów'
         ];
 
         foreach ($categoriesList as $catKey => $catName) {

@@ -16,12 +16,12 @@ class PhotoFilePathHelper
      */
     private $photoFileDirectory;
 
-    function __construct(string $photoFileDirectory)
+    function __construct($photoFileDirectory)
     {
         $this->photoFileDirectory = $photoFileDirectory;
     }
 
-    public function getNewFilePath(string $newFileName){
+    public function getNewFilePath($newFileName){
         return $this->photoFileDirectory.$newFileName;
     }
 

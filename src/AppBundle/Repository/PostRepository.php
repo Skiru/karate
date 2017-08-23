@@ -30,9 +30,10 @@ class PostRepository extends EntityRepository{
     public function getQueryBuilder(array $params = array()) {
 
         $qb = $this->createQueryBuilder('p')
-            ->select('p, c, t')
+            ->select('p, c, t, a')
             ->leftJoin('p.category', 'c')
-            ->leftJoin('p.tags','t');
+            ->leftJoin('p.tags','t')
+            ->leftJoin('p.author', 'a');
 
         if (!empty($params['status'])) {
             $qb->where('p.publishedDate <= :currDate AND p.publishedDate IS NOT NULL')

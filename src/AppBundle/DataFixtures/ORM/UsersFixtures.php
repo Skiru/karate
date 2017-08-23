@@ -31,7 +31,7 @@ class UsersFixtures extends AbstractFixture implements OrderedFixtureInterface, 
      */
     public function getOrder()
     {
-        return 1;
+        return 0;
     }
 
     /**
@@ -58,26 +58,10 @@ class UsersFixtures extends AbstractFixture implements OrderedFixtureInterface, 
 
         $userList = array(
             array(
-                'username' => 'mateo',
-                'username_canonical' => 'mateo',
-                'email' => 'mateusz.koziol15@gmail.com',
-                'email_canonical' => 'mateusz.koziol15@gmail.com',
-                'enabled' => true,
-                'password' => 'haslo',
-                'last_login' => '2012-01-01 12:12:12',
+                'username' => 'Lukasz',
+                'email' => 'lkoziol16@gmail.com',
+                'password' => 'zaq1@WSX',
                 'roles' => 'ROLE_ADMIN',
-                'salt' => '12345'
-            ),
-            array(
-                'username' => 'lolaa',
-                'username_canonical' => 'lolaa',
-                'email' => 'lolaa.lachowicz@gmail.com',
-                'email_canonical' => 'lolaa.lachowicz@gmail.com',
-                'enabled' => true,
-                'password' => 'haslo',
-                'last_login' => '2012-01-01 12:12:12',
-                'roles' => 'ROLE_ADMIN',
-                'salt' => '12345'
             )
         );
 
@@ -87,19 +71,15 @@ class UsersFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         foreach ($userList as $user) {
             $User = new User();
 
-            $password = $encoderFactory->getEncoder($User)->encodePassword($user['password'],$user['salt']);
+            $password = $encoderFactory->getEncoder($User)->encodePassword($user['password'],null);
 
             $User->setUsername($user['username'])
-                ->setUsernameCanonical($user['username_canonical'])
-                ->setEnabled($user['enabled'])
                 ->setRoles(array($user['roles']))
                 ->setEmail($user['email'])
-                ->setEmailCanonical($user['email_canonical'])
-                ->setPassword($password)
-                ->setSalt($user['salt'])
-                ->setLastLogin(new \DateTime($user['last_login']));
+                ->setPassword($password);
 
 
+            $this->addReference('user-'.$user['username'], $User);
 
             $manager->persist($User);
 
@@ -108,6 +88,8 @@ class UsersFixtures extends AbstractFixture implements OrderedFixtureInterface, 
 
         $manager->flush();
     }
+
+
 
 
 }

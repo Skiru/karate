@@ -22,7 +22,7 @@ class LocalFilesystemFileDeleter implements FileDeleter
      */
     private $filePath;
 
-    function __construct(Filesystem $filesystem, string $filePath)
+    function __construct(Filesystem $filesystem, $filePath)
     {
         $this->filesystem = $filesystem;
         $this->filePath = $filePath;
