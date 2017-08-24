@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ headerTitle }}
+{% endblock %}
+
+{% block content %}
+
+    <h1>Galeria</h1>
+    {% for gallery in galleryRepo %}
+        {{ gallery.name }}
+        {{ gallery.description }}
+        {{ gallery.slug }}
+        <img src="{{ asset('uploads/images/galleries/'~ gallery.coverImagePhoto) }}" alt="Zdjecie">
+    {% endfor %}
+
+
+{% endblock %}

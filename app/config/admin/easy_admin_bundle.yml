@@ -54,14 +54,14 @@ easy_admin:
             fields:
                 - { property: 'imageFile',type: AppBundle\Form\Type\CustomFileType, type_options: { required: true } }
                 - { property: 'slug'}
-                - { property: 'gallery' }
+                - { property: 'gallery', help: "Jeżeli chcesz wykorzystać to zdjęcie jako okładkę albumu, pozostaw to pole puste" }
 
       Gallery:
         label: 'Galerie'
         class: AppBundle\Entity\Gallery
         list:
             fields:
-                - { property: 'coverImagePhoto', type: 'image', base_path: '%app.path.gallery_image%', label: 'Image' }
+                - { property: 'coverImagePhoto', type: 'image', base_path: '%app.path.gallery_image%', label: 'Okładka albumu' }
                 - "name"
                 - "createdAt"
                 - "photos"

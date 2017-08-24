@@ -78,7 +78,9 @@ class PhotoUploadListener
         $temporaryLocation = $file->getPathname();
 
 
-        $fileName = md5(uniqid()).'.'.$file->guessExtension();
+//        $fileName = md5(uniqid()).'.'.$file->guessExtension();
+        $fileName = md5(uniqid()).'-'.$file->getClientOriginalName();
+
         $newLocation = $this->photoFilePathHelper->getNewFilePath(
 //            $file->getClientOriginalName()
             $fileName

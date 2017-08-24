@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Entity\Traits\Timestampable;
+use AppBundle\Libs\Utils;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,7 +11,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Table(name="galleries")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\GalleryRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class Gallery
@@ -41,10 +42,32 @@ class Gallery
     /**
      * @var Photo[]|ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="Photo", mappedBy="gallery", cascade={"persist", "refresh"})
+     * @ORM\OneToMany(targetEntity="Photo", mappedBy="gallery", cascade={"persist"})
      *
      */
     private $photos;
+
+    /**
+     * @ORM\Column(type="string", length=120, unique=true)
+     */
+    private $slug;
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
+
 
 
     /**
@@ -210,6 +233,7 @@ class Gallery
     public function preUpdate(){
 
         $this->setUpdatedAt();
+        $this->setSlug(Utils::sluggify($this->getName()));
     }
 
     /**
@@ -217,6 +241,7 @@ class Gallery
      */
     public function prePersist(){
 
+        $this->setSlug(Utils::sluggify($this->getName()));
         $this->setCreatedAt();
         $this->setUpdatedAt();
     }

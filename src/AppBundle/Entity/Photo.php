@@ -208,7 +208,7 @@ class Photo
 
     function __toString()
     {
-        return (string)$this->getSlug();
+        return (string)$this->getImageName();
     }
 
 

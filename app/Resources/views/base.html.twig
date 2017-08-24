@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Karate Kyokushin Rzeszów Strona Domowa{% endblock %}</title>
@@ -59,7 +59,7 @@
                         <a href="#">Dietetyka sportowa</a>
                     </div>
                 </li>
-                <li><a href="#">Galeria</a></li>
+                <li><a href="{{ path('karate_gallery_index') }}">Galeria</a></li>
                 <li class="drp-down">
                     <a href="#" class="dropbtn">Kanał YouTube</a>
                     <div class="drp-down-content">
@@ -99,7 +99,7 @@
                         <li class="pushy-link"><a href="#">Dietetyka sportowa</a></li>
                     </ul>
                 </li>
-                <li class="pushy-link"><a href="#">Galeria</a></li>
+                <li class="pushy-link"><a href="{{ path('karate_gallery_index') }}">Galeria</a></li>
                 <li class="pushy-submenu">
                     <a href="#">Kanał Youtube</a>
                     <ul>
@@ -224,6 +224,7 @@
                     <ul>
                         <h3 class="footer_heading"><i class="fa fa-youtube-play" aria-hidden="true"></i> Social</h3>
                         <li><a href="#">Materiały</a></li>
+                        <li><a href="{{ path('karate_gallery_index') }}">Galeria zdjęć</a></li>
                         <li><a href="#">Linki</a></li>
                         <li><a href="{{ path('karate_contact') }}">Kontakt</a></li>
                         <li><a href="#">YouTube</a></li>
