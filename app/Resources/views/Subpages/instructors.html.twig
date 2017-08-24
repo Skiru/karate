@@ -9,7 +9,7 @@
 
     {% for instructor in instructors %}
         <div class="col-xs-12 col-md-6 instructor">
-            <img class="img-responsive rounded-image" src="{{ asset('images/instructors/'~ instructor.avatar) }}" alt="{{ instructor.imie }}&nbsp;{{ instructor.nazwisko }}">
+            <img class="img-responsive square-image" src="{{ asset('images/instructors/'~ instructor.avatar) }}" alt="{{ instructor.imie }}&nbsp;{{ instructor.nazwisko }}">
         <div class="text-centered">
             {{ instructor.tytul }} <strong>{{ instructor.imie }}&nbsp;{{ instructor.nazwisko }}</strong> <br/>
             Stopień {{ instructor.stopien }}

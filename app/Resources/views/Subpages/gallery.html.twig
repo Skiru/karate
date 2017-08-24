@@ -6,13 +6,21 @@
 
 {% block content %}
 
-    <h1>Galeria</h1>
+    <h4 class="header-title">Dostępne galerie <span class="head-line"></span></h4>
     {% for gallery in galleryRepo %}
-        {{ gallery.name }}
-        {{ gallery.description }}
-        {{ gallery.slug }}
-        <img src="{{ asset('uploads/images/galleries/'~ gallery.coverImagePhoto) }}" alt="Zdjecie">
+    <!-- Rysowanie galerii na stronie -->
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <div class="hovereffect">
+            <img class="img-responsive  front-page-image" src="{{ asset('uploads/images/galleries/'~ gallery.coverImagePhoto) }}" alt="Zdjecie tytulowe">
+            <div class="overlay">
+                <h2>{{ gallery.name }}</h2>
+                <p>
+                    <a href="{{ path('karate_gallery_photos', {'slug':gallery.slug}  ) }}">Przejdź do galeri</a>
+                </p>
+            </div>
+        </div>
+    </div>
     {% endfor %}
-
+    <div class="clear"></div>
 
 {% endblock %}

@@ -19,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table(name="photos")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PhotoRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class Photo

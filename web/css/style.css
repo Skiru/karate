@@ -1092,7 +1092,7 @@ opacity: 1;
     position: relative;
     text-align: center;
     cursor: default;
-    background: #DE1B1B;
+    background: rgba(222,27,27,.8);
   }
   .front-page-image
   {
@@ -1138,10 +1138,11 @@ opacity: 1;
     color: #fff;
     text-align: center;
     position: relative;
-    font: 'Roboto', sans-serif 17px;
+    font: .8em 'Roboto';
     overflow: hidden;
     padding: .5em 0;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+    background-color: transparent;
   }
 
   .hovereffect h2:after {
@@ -1429,8 +1430,8 @@ footer .autors{
 .pull-left{
   float: left !important;
 }
-.rounded-image{
-  border-radius: 50%;
+.square-image{
+  border-radius: 2px;
   margin: 0 auto;
 }
 /* 

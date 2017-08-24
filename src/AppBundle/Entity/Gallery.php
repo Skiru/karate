@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Table(name="galleries")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\GalleryRepository")
+ * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  */
 class Gallery
