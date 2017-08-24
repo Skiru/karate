@@ -10,6 +10,13 @@ easy_admin:
             fields:
                 - { property: 'name', label: 'Nazwa kategorii'}
                 - { property: 'posts', label: 'Powiązane posty'}
+      Tag:
+        label: 'Tagi'
+        class: AppBundle\Entity\Tag
+        form:
+            fields:
+                - { property: 'name', label: 'Nazwa tagu'}
+
       Post:
         label: 'Aktualności'
         class: AppBundle\Entity\Post
@@ -52,3 +59,14 @@ easy_admin:
       Gallery:
         label: 'Galerie'
         class: AppBundle\Entity\Gallery
+        list:
+            fields:
+                - { property: 'coverImagePhoto', type: 'image', base_path: '%app.path.gallery_image%', label: 'Image' }
+                - "name"
+                - "createdAt"
+                - "photos"
+        form:
+            fields:
+                - { property: 'name', label: 'Nazwa galerii'}
+                - { property: 'description', label: 'Opis galerii'}
+                - { property: 'coverImagePhoto', label: 'Okładka albumu zdjęć', type_options: { required: true } }

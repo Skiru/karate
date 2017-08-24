@@ -77,8 +77,11 @@ class PhotoUploadListener
 
         $temporaryLocation = $file->getPathname();
 
+
+        $fileName = md5(uniqid()).'.'.$file->guessExtension();
         $newLocation = $this->photoFilePathHelper->getNewFilePath(
-            $file->getClientOriginalName()
+//            $file->getClientOriginalName()
+            $fileName
         );
 
         $this->fileMover->move(
@@ -88,15 +91,19 @@ class PhotoUploadListener
 
 
         //addition infos setting up for entity before persisting
+        //$file->getClientOriginalName()
+
+
         $entity
             ->setImageSize(
                 $file->getClientSize()/1048576
             )
             ->setImageName(
-                $file->getClientOriginalName()
-            )->setSlug(
-                Utils::sluggify($file->getClientOriginalName())
+                $fileName
             )
+//            )->setSlug(
+//                Utils::sluggify($file->getClientOriginalName())
+//            )
         ;
 
         return true;

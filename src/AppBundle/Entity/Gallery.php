@@ -6,6 +6,7 @@ use AppBundle\Entity\Traits\Timestampable;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Table(name="galleries")
@@ -36,15 +37,59 @@ class Gallery
      */
     private $description;
 
+
     /**
      * @var Photo[]|ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="Photo", mappedBy="gallery", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Photo", mappedBy="gallery", cascade={"persist", "refresh"})
      *
      */
     private $photos;
 
 
+    /**
+     * @var Photo
+     * @ORM\OneToOne(targetEntity="Photo")
+     * @ORM\JoinColumn(name="cover_photo_id", referencedColumnName="id")
+     */
+    private $coverImagePhoto;
+
+    /**
+     * @return Photo
+     */
+    public function getCoverImagePhoto()
+    {
+        return $this->coverImagePhoto;
+    }
+
+    /**
+     * @param Photo $coverImagePhoto
+     */
+    public function setCoverImagePhoto(Photo $coverImagePhoto)
+    {
+        $this->coverImagePhoto = $coverImagePhoto;
+    }
+
+    /**
+     * @var integer
+     */
+    private $amountOfPhotos;
+
+    /**
+     * @return int
+     */
+    public function getAmountOfPhotos(): int
+    {
+        return $this->amountOfPhotos;
+    }
+
+    /**
+     * @param int $amountOfPhotos
+     */
+    public function setAmountOfPhotos(int $amountOfPhotos)
+    {
+        $this->amountOfPhotos = $amountOfPhotos;
+    }
 
     /**
      * Constructor
@@ -52,7 +97,8 @@ class Gallery
     public function __construct()
     {
         $this->photos = new ArrayCollection();
-        $this->setUpdatedAt();
+        $this->setCreatedAt();
+        $this->setAmountOfPhotos($this->photos->count());
     }
 
     /**
@@ -155,5 +201,23 @@ class Gallery
     function __toString()
     {
         return $this->name;
+    }
+
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function preUpdate(){
+
+        $this->setUpdatedAt();
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function prePersist(){
+
+        $this->setCreatedAt();
+        $this->setUpdatedAt();
     }
 }

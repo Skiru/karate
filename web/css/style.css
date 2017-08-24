@@ -465,7 +465,7 @@ li.active a:after{
   color: #ffffff;
   text-align: center;
   height: 40px;
-  font: 1.2em/40px Comic-Sans, sans-serif;
+  font: 1.2em/40px "Times New Roman", sans-serif;
   letter-spacing: 3px;
 }
 .left_logo
@@ -475,12 +475,14 @@ li.active a:after{
   display: block;
   width:20%;
   height: 300px;
+  overflow: hidden;
 }
 
 .left_logo > img
 {
-  max-width: 60%;
+  max-width: 70%;
   height: auto;
+  padding:0;
   margin: 0 auto;
   box-sizing: border-box;
   position: absolute;
@@ -534,11 +536,12 @@ li.active a:after{
   display: block;
   width:20%;
   height: 300px;
+  overflow: hidden;
 }
 
 .right > img
 {
-  max-width: 25%;
+  max-width: 26%;
   height: auto;
   margin: 0 auto;
   box-sizing: border-box;
@@ -1630,7 +1633,7 @@ footer .autors{
   left:0;
   margin-top: -10px;
   box-sizing: border-box;
-  font: .8em Comic-Sans;
+  font: .8em "Times New Roman";
   letter-spacing: 1px;
   padding-left: 2px;
   padding-right: 2px;

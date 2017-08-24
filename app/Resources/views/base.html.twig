@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Kyoukishin Karate Rzeszów Strona Domowa{% endblock %}</title>
+        <title>{% block title %}Karate Kyokushin Rzeszów Strona Domowa{% endblock %}</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- Keywords for website -->
         <meta name="keywords" content="karate, kyoukushin, rzeszów, dojo, trening, IKO, karate kyokushin">
@@ -21,19 +21,8 @@
         <link rel="stylesheet" href="{{ asset('css/pushy.css') }}">
         <!-- Font awesome -->
         <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/font-awesome.css') }}">
-
-
-        <!-- JQuery scripts -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <!-- ScrollToTop -->
-        <script src="{{ asset('js/jquery.scrollTo.min.js') }}"></script>
-        <!-- Navigation sheet -->
-        <script type="text/javascript" src="{{ asset('js/greedynav.js') }}"></script>
-        <!-- Manu stays sticky at above 500+ scrooling -->
-        <script src="{{ asset('js/sticky.js') }}"></script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
-
         {% block stylesheets %}
 
         {% endblock %}
@@ -46,7 +35,8 @@
     {% block navigation_block %}
         <nav class="nawigacja greedy">
             <ul class="links">
-                <li class ="active"><a href="{{ path('karate_posts_index') }}">Strona początkowa</a></li>
+                {#<li class ="active"><a href="{{ path('karate_posts_index') }}">Strona początkowa</a></li>#}
+                <li><a href="{{ path('karate_posts_index') }}">Strona początkowa</a></li>
                 <li><a href="{{ path('karate_instructors') }}">Instruktorzy</a></li>
                 <li><a href="{{ path('karate_regulations') }}">Regulamin</a></li>
                 <li class="drp-down">
@@ -144,7 +134,7 @@
                 <img src="{{ asset('images/logo2.png') }}" alt="">
             </div>
             <div class="clear"></div><!-- clearing a baner float -->
-            <div class="text2">&#8222;GDY NIE DAJESZ RADY, A WALCZYSZ DALEJ... ZACZYNA SIĘ KYOKUSHIN&#8221;</div>
+            <div class="text2">&#8222;GDY NIE DAJESZ RADY, A WALCZYSZ DALEJ... WTEDY ZACZYNA SIĘ KYOKUSHIN&#8221;</div>
         </header>
     {% endblock %}
 
@@ -246,6 +236,15 @@
 
     <!-- FOOTER ENDS -->
     <div class="block"></div>
+    <!-- JQuery scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- ScrollToTop -->
+    <script src="{{ asset('js/jquery.scrollTo.min.js') }}"></script>
+    <!-- Navigation sheet -->
+    <script type="text/javascript" src="{{ asset('js/greedynav.js') }}"></script>
+    <!-- Manu stays sticky at above 500+ scrooling -->
+    <script src="{{ asset('js/sticky.js') }}"></script>
+
     {#<!-- ScrollUp JS -->#}
     <script src="{{ asset('js/scrollup.js') }}"></script>
     {#<!-- Pushy JS -->#}
