@@ -465,8 +465,9 @@ li.active a:after{
   color: #ffffff;
   text-align: center;
   height: 40px;
-  font: 1.2em/40px "Times New Roman", sans-serif;
+  font: 1.2em/40px "Times New Roman";
   letter-spacing: 3px;
+  font-style: italic;
 }
 .left_logo
 {
@@ -828,14 +829,14 @@ span.head-line{
   {
     padding: 15px;
     width: 100%;
-  /* background: #e52d27; 
-  background: -moz-linear-gradient(top,  #e52d27 0%, #b31217 100%); 
-  background: -webkit-linear-gradient(top,  #e52d27 0%,#b31217 100%); 
-  background: linear-gradient(to bottom,  #e52d27 0%,#b31217 100%); 
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e52d27', endColorstr='#b31217',GradientType=0 ); 
-  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .12);
-  -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .12);
-  -moz-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .12); */
+    /* background: #e52d27;
+    background: -moz-linear-gradient(top,  #e52d27 0%, #b31217 100%);
+    background: -webkit-linear-gradient(top,  #e52d27 0%,#b31217 100%);
+    background: linear-gradient(to bottom,  #e52d27 0%,#b31217 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e52d27', endColorstr='#b31217',GradientType=0 );
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .12);
+    -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .12);
+    -moz-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .12); */
 }
 .hedom img{
   width: 100%;
@@ -1035,6 +1036,12 @@ opacity: 1;
     text-decoration: none;
     color:  black;
     border-bottom: 1px solid #ededed;
+  }
+
+  .gallery-wrapper{
+    padding: 0;
+    margin:0;
+    outline: 1px solid red;
   }
 
 
@@ -1504,6 +1511,7 @@ footer .autors{
  }
  .text2{
   font-size:  0.9em;
+   font-style: italic;
   text-align: center;
 }
 
@@ -1635,10 +1643,12 @@ footer .autors{
   margin-top: -10px;
   box-sizing: border-box;
   font: .8em "Times New Roman";
+  font-style: italic;
   letter-spacing: 1px;
   padding-left: 2px;
   padding-right: 2px;
 }
+
 /*hideing navigation*/
 .nawigacja{
   display: none !important;
