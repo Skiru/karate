@@ -18,5 +18,5 @@ parameters:
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
 
-    photo_file_path: "%kernel.root_dir%/../web/uploads/images/galleries/"
+    photo_file_path: "%kernel.root_dir%/../public_html/uploads/images/galleries/"
 

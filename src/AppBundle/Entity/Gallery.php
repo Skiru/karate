@@ -42,7 +42,7 @@ class Gallery
     /**
      * @var Photo[]|ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="Photo", mappedBy="gallery", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Photo", mappedBy="gallery", cascade={"persist", "remove"})
      *
      */
     private $photos;
@@ -51,6 +51,13 @@ class Gallery
      * @ORM\Column(type="string", length=120, unique=true)
      */
     private $slug;
+
+    /**
+     * @var Photo
+     * @ORM\OneToOne(targetEntity="Photo")
+     * @ORM\JoinColumn(name="cover_photo_id", referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $coverImagePhoto;
 
     /**
      * @return mixed
@@ -68,14 +75,6 @@ class Gallery
         $this->slug = $slug;
     }
 
-
-
-    /**
-     * @var Photo
-     * @ORM\OneToOne(targetEntity="Photo")
-     * @ORM\JoinColumn(name="cover_photo_id", referencedColumnName="id")
-     */
-    private $coverImagePhoto;
 
     /**
      * @return Photo
@@ -101,15 +100,15 @@ class Gallery
     /**
      * @return int
      */
-    public function getAmountOfPhotos(): int
+    public function getAmountOfPhotos()
     {
         return $this->amountOfPhotos;
     }
 
     /**
-     * @param int $amountOfPhotos
+     * @param integer $amountOfPhotos
      */
-    public function setAmountOfPhotos(int $amountOfPhotos)
+    public function setAmountOfPhotos($amountOfPhotos)
     {
         $this->amountOfPhotos = $amountOfPhotos;
     }

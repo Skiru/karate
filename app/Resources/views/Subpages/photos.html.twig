@@ -1,11 +1,57 @@
 {% extends 'base.html.twig' %}
 
 
+{% block full_width_container %}
 
-{% block content %}
+    {% if noPhotos == true %}
 
-    {#{% for photo in photos %}#}
-        {#{{ photo.imageName }}#}
-    {#{% endfor %}#}
+        <h1> Przeszkiwana galeria nie posiada jeszcze zdjęć, przepraszamy za zaistniały problem i zapraszamy do obejrzenia innych galerii.</h1>
+
+        <div class="news-link news-link-forward">
+            <a href="{{ path('karate_gallery_index') }}" class="btn-green"><span class="fa fa-chevron-circle-left" aria-hidden="true"></span> Powrót do spisu galerii </a>
+        </div>
+
+    {% else %}
+        <h4 class="border_animation header-title">Zdjęcia w galerii: {{ gallery.name }}<span class="head-line"></span></h4>
+
+            <main class="gallery-wrapper clearfix" data-chocolat-title="{{ gallery.name }}">
+
+                {% for photo in photos %}
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-photo">
+                        <a class="chocolat-image" href="{{ asset('uploads/images/galleries/'~ photo.imageName) }}" title="Data dodania: {{ photo.createdAt|date('d.m.Y, H:m')  }}">
+                            <img class="img-responsive" src="{{ asset('uploads/images/galleries/'~ photo.imageName) }}" alt="{{ photo.slug }}" >
+                        </a>
+
+                        <div class="desc">Dodano: {{ photo.createdAt|date('d.m.Y, H:m') }}</div>
+
+                    </div>
+                </div>
+                {% endfor %}
+
+            </main>
+
+        <div class="head-line"></div>
+
+        <div class="news-link news-link-forward">
+            <a href="{{ path('karate_gallery_index') }}" class="btn-green"><span class="fa fa-chevron-circle-left" aria-hidden="true"></span> Powrót do spisu galerii </a>
+        </div>
+
+    {% endif %}
+
+
+{% endblock %}
+
+{% block custom_javascript %}
+    <script>
+        $(document).ready(function(){
+            $('.gallery-wrapper').Chocolat({
+                imageSize: 'contain',
+                fullscreen: true,
+                loop: true
+            });
+
+        });
+    </script>
 
 {% endblock %}

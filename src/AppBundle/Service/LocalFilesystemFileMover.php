@@ -22,6 +22,7 @@ class LocalFilesystemFileMover implements FileMover
 
         $this->filesystem->rename($existingFilePath,$newFilePath);
 
+        $this->filesystem->chmod($newFilePath,0755,0000,true);
         return true;
 
     }

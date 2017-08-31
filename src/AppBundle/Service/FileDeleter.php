@@ -10,5 +10,8 @@ namespace AppBundle\Service;
 
 interface FileDeleter
 {
-    public function delete(string $pathToFile);
+    /**
+     * @param string $pathToFile
+     */
+    public function delete($pathToFile);
 }

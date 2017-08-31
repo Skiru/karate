@@ -15,6 +15,7 @@ use AppBundle\Entity\Gallery;
 use AppBundle\Libs\Utils;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -42,6 +43,11 @@ class Photo
 
     /**
      * @var UploadedFile
+     * @Assert\File(
+     *     maxSize="4M",
+     *     mimeTypes = {"image/bmp","image/png","image/tiff","image/jpeg", "image/gif" },
+     *     mimeTypesMessage = "Niedozwolony format grafiki. Dozwolone formaty: jpeg, bmp, png, gif"
+     * )
      */
     private $imageFile;
 
@@ -65,7 +71,7 @@ class Photo
      * @var Gallery
      *
      * @ORM\ManyToOne(targetEntity="Gallery", inversedBy="photos")
-     * @ORM\JoinColumn(name="gallery_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="gallery_id", referencedColumnName="id", onDelete="CASCADE")
      **/
     private $gallery;
 

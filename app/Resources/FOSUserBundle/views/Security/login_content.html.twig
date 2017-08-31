@@ -1,8 +1,6 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 
-
-
     <form action="{{ path("fos_user_security_check") }}" method="post" class="form-group-style">
         <div class="form-group-header-image"></div>
         {% if error %}
@@ -17,12 +15,12 @@
 
         <div class="form-group">
             <label for="username">{{ 'security.login.username'|trans }}</label>
-            <input type="text" class="form-control-red" id="username" name="_username" value="{{ last_username }}" required="required" />
+            <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required="required" />
         </div>
 
         <div class="form-group">
             <label for="password">{{ 'security.login.password'|trans }}</label>
-            <input type="password" class="form-control-red" id="password" name="_password" required="required" />
+            <input type="password" class="form-control" id="password" name="_password" required="required" />
         </div>
 
 
@@ -30,7 +28,7 @@
         <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
 
         <div class="form-group">
-            <input type="submit" class="btn btn-block btn-md btn-default" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+            <input type="submit" class="btn btn-block btn-lg btn-danger" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
         </div>
         
         <div class="form-group">

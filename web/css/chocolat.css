@@ -36,7 +36,7 @@
     margin-left:-16px;
     margin-top:-16px;
     z-index:11;
-    background:url(../img/Icons/loader.gif);
+    background:url('../images/loader.gif');
     display:none;
 }
 .chocolat-content{
@@ -62,7 +62,7 @@
     top: 50%;
     margin-top: -64px;
     cursor:pointer;
-    background:url(../img/Icons/prev.png) 50% 50% no-repeat;
+    background:url('../images/prev.png') 50% 50% no-repeat;
     z-index: 17;
     display: none;
 
@@ -75,7 +75,7 @@
     top: 50%;
     margin-top: -64px;
     cursor:pointer;
-    background:url(../img/Icons/next.png)  50% 50% no-repeat;
+    background:url('../images/next.png')  50% 50% no-repeat;
     z-index: 17;
     display: none;
 }
@@ -103,7 +103,7 @@
     position: absolute;
     top: 0;
     right: 0;
-    background:url(../img/Icons/close.png) 50% 50% no-repeat;
+    background:url('../images/close.png') 50% 50% no-repeat;
 }
 .chocolat-wrapper .chocolat-bottom{
     position:absolute;
@@ -137,7 +137,7 @@
 .chocolat-wrapper .chocolat-fullscreen{
     width: 16px;
     height: 40px;
-    background: url(../img/fullscreen.png) 50% 50% no-repeat;
+    background: url('../images/fullscreen.png') 50% 50% no-repeat;
     display: block;
     margin:auto;
     cursor: pointer;
@@ -169,21 +169,24 @@ body.chocolat-open>.chocolat-content{
     position: relative;
 }
 
-/* uncomment to hide controls when zoomed-in*/
-/*
-.chocolat-zoomable .chocolat-top,
-.chocolat-zoomable .chocolat-bottom,
-.chocolat-zoomable .chocolat-right,
-.chocolat-zoomable .chocolat-left {
-    transition: opacity .3s ease, visibility 0s .3s;
-   opacity: 1;
-}
 
-.chocolat-zoomable.chocolat-zoomed .chocolat-top,
-.chocolat-zoomable.chocolat-zoomed .chocolat-bottom,
-.chocolat-zoomable.chocolat-zoomed .chocolat-right,
-.chocolat-zoomable.chocolat-zoomed .chocolat-left {
-    visibility: hidden;
-    opacity: 0;
-}
-*/
+
+
+/* uncomment to hide controls when zoomed-in*/
+
+/*.chocolat-zoomable .chocolat-top,*/
+/*.chocolat-zoomable .chocolat-bottom,*/
+/*.chocolat-zoomable .chocolat-right,*/
+/*.chocolat-zoomable .chocolat-left {*/
+    /*transition: opacity .3s ease, visibility 0s .3s;*/
+   /*opacity: 1;*/
+/*}*/
+
+/*.chocolat-zoomable.chocolat-zoomed .chocolat-top,*/
+/*.chocolat-zoomable.chocolat-zoomed .chocolat-bottom,*/
+/*.chocolat-zoomable.chocolat-zoomed .chocolat-right,*/
+/*.chocolat-zoomable.chocolat-zoomed .chocolat-left {*/
+    /*visibility: hidden;*/
+    /*opacity: 0;*/
+/*}*/
+

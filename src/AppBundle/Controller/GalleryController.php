@@ -22,27 +22,47 @@ class GalleryController extends Controller
      *     "/galeria/{slug}",
      *     name = "karate_gallery_photos"
      * )
+     * @var $photo array
      * @Method("GET")
      */
     public function photoAction($slug) {
 
-//        $photoRepo = $this->getDoctrine()->getRepository('AppBundle:Gallery');
-//
-//        $photo = $photoRepo->getGalleryPhotos($slug);
-//
-//        if ($photo === null){
-//            throw $this->createNotFoundException('Szukana galeria nei zostala znaleziona!');
-//        }
-//
+        $galleryRepo = $this->getDoctrine()->getRepository('AppBundle:Gallery');
+        $gallery = $galleryRepo->findOneBySlug($slug);
+
+        if ($gallery === null) {
+            throw $this->createNotFoundException('Szukana galeria nie został odnaleziona!');
+        }
+
+
+
+        //situation where gallery is just created and dont have photos yet
+        $noPhotos=false;
+
+        $photoRepo = $this->getDoctrine()->getRepository('AppBundle:Photo');
+
+
+        $photo = $photoRepo->getGalleryPhotos($slug);
+
+        if ($photo === null){
+            throw $this->createNotFoundException('Szukana galeria nie został odnaleziona!');
+        }
+
+        if (empty($photo)) {
+            $noPhotos=true;
+        }
+
         return $this->render('Subpages/photos.html.twig',[
-//            'photos' => $photo
+            'photos' => $photo,
+            'noPhotos' => $noPhotos,
+            'gallery' => $gallery,
         ]);
     }
 
 
     /**
      * @Route(
-     *     "/galeria",
+     *     "/galeria/",
      *     name = "karate_gallery_index"
      * )
      * @Method("GET")
@@ -52,11 +72,18 @@ class GalleryController extends Controller
         $galleryRepo = $this->getDoctrine()->getRepository('AppBundle:Gallery');
         $gallery = $galleryRepo->findAll();
 
-        dump($gallery);
+        //situation where there's no gallery yet
+        $noGallery=false;
+
+        if  (empty($gallery)){
+            $noGallery = true;
+        }
+
 
         return $this->render('Subpages/gallery.html.twig',[
             'headerTitle' => 'Galeria',
             'galleryRepo' => $gallery,
+            'noGallery' => $noGallery,
         ]);
     }
 

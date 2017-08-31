@@ -2,14 +2,18 @@
 <html lang="pl">
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Karate Kyokushin Rzeszów Strona Domowa{% endblock %}</title>
+        <title>{% block title %}Karate Kyokushin Rzeszów, strona Internetowa klubu{% endblock %}</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- Keywords for website -->
-        <meta name="keywords" content="karate, kyoukushin, rzeszów, dojo, trening, IKO, karate kyokushin">
+        <meta name="keywords" content="karate, kyoukushin, rzeszów, dojo, trening, IKO, karate kyokushin, hyżne">
         <!-- Website description -->
-        <meta name ="description" content="Strona Internetowa poświęcona Rzeszowskiemu klubowi Karate, znajdziesz tutaj aktualności, rozkład treningów, naszych intruktorów oraz bogata galerie zdjec. Zapraszamy Rzeszowski Klub Karate Kyoukushin. OSU!">
+        <meta name ="description" content="Strona Internetowa poświęcona Rzeszowskiemu klubowi Karate Kyokushin. Znajdziesz tutaj aktualności, rozkład treningów, naszych intruktorów oraz bogata galerie zdjec. Zapraszamy Rzeszowski Klub Karate Kyoukushin. OSU!">
         <!-- Always have to display in x1 scale -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta name="author" content="Karate Kyokushin Rzeszów">
+        <meta name="copyright" content="Karate Kyokushin Rzeszów" />
+        <meta name="robots" content="index, follow"/>
+
 
         <!-- CSS Style sheets -->
         <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
@@ -21,6 +25,8 @@
         <link rel="stylesheet" href="{{ asset('css/pushy.css') }}">
         <!-- Font awesome -->
         <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/font-awesome.css') }}">
+        <!-- Chocolat lightbox -->
+        <link rel="stylesheet" href="{{ asset('css/chocolat.css') }}" type="text/css" media="screen" charset="utf-8">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">
         {% block stylesheets %}
@@ -29,6 +35,9 @@
         <link rel="icon" type="image/png" href="{{ asset('images/kanku16.png') }}" />
     </head>
     <body class="clearfix">
+    {% block body %}
+
+
     <div class="baner"></div>
     <a href="#" class="scrollup"></a>
 
@@ -59,8 +68,7 @@
                         <a href="#">Dietetyka sportowa</a>
                     </div>
                 </li>
-                {#<li><a href="{{ path('karate_gallery_index') }}">Galeria</a></li>#}
-                <li><a href="#">Galeria</a></li>
+                <li><a href="{{ path('karate_gallery_index') }}">Galeria</a></li>
                 <li class="drp-down">
                     <a href="#" class="dropbtn">Kanał YouTube</a>
                     <div class="drp-down-content">
@@ -100,8 +108,7 @@
                         <li class="pushy-link"><a href="#">Dietetyka sportowa</a></li>
                     </ul>
                 </li>
-                <li class="pushy-link"><a href="#">Galeria</a></li>
-                {#<li class="pushy-link"><a href="{{ path('karate_gallery_index') }}">Galeria</a></li>#}
+                <li class="pushy-link"><a href="{{ path('karate_gallery_index') }}">Galeria</a></li>
                 <li class="pushy-submenu">
                     <a href="#">Kanał Youtube</a>
                     <ul>
@@ -141,68 +148,42 @@
     {% endblock %}
 
     {% block search_block %}
-        <div class="search-row">
-            <div class="container">
-                    <div class="container-1 pull-right">
-                        <span class="icon"><i class="fa fa-search"></i></span>
-                        <form action="{{ path('karate_search') }}">
-                            <input type="text" value="{{ searchParam is defined ? searchParam : '' }}" name="search" id="search" placeholder="Wyszukaj">
-                        </form>
-                    </div>
-            </div>
-        </div>
-    {% endblock %}
 
+    {% endblock %}
 
     <!-- Content begin -->
     <main class="container bg_color">
-        <div class="left-container">
-            <div class="left-container-item">
-                <h4 class="header-title-small border_animation">Sponsorzy <span class="head-line"></span> </h4>
-                <div class="hedom">
-                    <a href="#"> <img src="{{ asset('images/hedom.png') }}" alt="Hedom"> </a>
-                </div>
-                {#<h6>#}
-                    {#Chciałbyś, zasponsorować nasz klub i otrzymać miejsce reklamowe? Napisz do nas!#}
-                {#</h6>#}
+        {% block full_width_container %}
+
+            <div class="main-container">
+                {% block ad_image %}
+
+                {% endblock %}
+
+                {% block content %}
+
+
+                {% endblock %}
             </div>
 
-            <div class="left-container-item">
-                <h4 class="header-title-small border_animation">Kyokushin video <span class="head-line"></span></h4>
-                <div class="video-responsive">
-                    <div>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/phVnLAOMF98" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
+            <aside class="left-container">
+                {% block right_side %}
 
-            <div class="left-container-item">
-                {{ print_categories_list() }}
-            </div>
-            <div class="left-container-item">
-                {{ print_tags_cloud() }}
-            </div>
 
-        </div>
-        <!-- ./left-container -->
+                {% endblock %}
+            </aside>
+            <!-- ./right-container -->
 
-        <div class="main-container">
-            <div class="wytnij">
-                <img src="{{ asset('images/zapisy2.png') }}" class="zapisy_png"/>
-            </div>
 
-            {% block content %}
-
-            {% endblock %}
-
-        </div>
-
+        {% endblock %}
         <!-- ./main-container -->
         <div class="clear"></div>
     </main>
 
+
+    {% block footer %}
     <footer class="footer-wrap">
-        {% block footer %}
+
             <div class="container">
                 <div class="triple sm">
                     <ul>
@@ -228,17 +209,17 @@
                     <ul>
                         <h3 class="footer_heading"><i class="fa fa-youtube-play" aria-hidden="true"></i> Social</h3>
                         <li><a href="#">Materiały</a></li>
-                        {#<li><a href="{{ path('karate_gallery_index') }}">Galeria zdjęć</a></li>#}
+                        <li><a href="{{ path('karate_gallery_index') }}">Galeria zdjęć</a></li>
                         <li><a href="#">Linki</a></li>
                         <li><a href="{{ path('karate_contact') }}">Kontakt</a></li>
                         <li><a href="#">YouTube</a></li>
                     </ul>
                 </div>
-                <div class="autors">Created by Mateusz Kozioł only for private usage!</div>
+                <div class="autors">Karate Kyokushin Rzeszów 2017. Wszystkie prawa zastrzeżone.</div>
             </div>
-        {% endblock %}
-    </footer>
 
+    </footer>
+    {% endblock %}
     <!-- FOOTER ENDS -->
     <div class="block"></div>
     <!-- JQuery scripts -->
@@ -255,5 +236,12 @@
     {#<!-- Pushy JS -->#}
     <script src="{{ asset('js/pushy.js') }}"></script>
 
+    {#<!-- Galery Lightbox -->#}
+    <script src="{{ asset('js/jquery.chocolat.js') }}"></script>
+
+    {% block custom_javascript %}
+    {% endblock %}
+
+    {% endblock %}
     </body>
 </html>

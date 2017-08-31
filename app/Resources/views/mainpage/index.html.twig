@@ -1,5 +1,26 @@
 {% extends 'base.html.twig' %}
 
+{% block search_block %}
+    <div class="search-row">
+        <div class="container">
+            <div class="container-1 pull-right">
+                <span class="icon"><i class="fa fa-search"></i></span>
+                <form action="{{ path('karate_search') }}">
+                    <input type="text" value="{{ searchParam is defined ? searchParam : '' }}" name="search" id="search" placeholder="Wyszukaj">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block ad_image %}
+    <div class="wytnij">
+        <img src="{{ asset('images/zapisy2.png') }}" class="zapisy_png"/>
+    </div>
+{% endblock %}
+
+
 {% block content %}
 
     {% block listTitle %}
@@ -56,6 +77,45 @@
     {% endfor %}
 
     {{ knp_pagination_render(pagination,'Pagination/pagination.html.twig') }}
+{% endblock %}
+
+{% block right_side %}
+    <div class="left-container-item">
+        <h4 class="header-title-small border_animation">Partnerzy <span class="head-line"></span> </h4>
+        <div class="">
+            <a href="#"> <img class="img-responsive" src="{{ asset('images/underground_logo.jpg') }}" alt="Underground warrior"> </a>
+        </div>
+        {#<h6>#}
+        {#Chciałbyś, zasponsorować nasz klub i otrzymać miejsce reklamowe? Napisz do nas!#}
+        {#</h6>#}
+    </div>
+
+    <div class="left-container-item">
+        <h4 class="header-title-small border_animation">Sponsorzy <span class="head-line"></span> </h4>
+        <div class="hedom">
+            <a href="#"> <img src="{{ asset('images/hedom.png') }}" alt="Hedom"> </a>
+        </div>
+        {#<h6>#}
+        {#Chciałbyś, zasponsorować nasz klub i otrzymać miejsce reklamowe? Napisz do nas!#}
+        {#</h6>#}
+    </div>
+
+    <div class="left-container-item">
+        <h4 class="header-title-small border_animation">Kyokushin video <span class="head-line"></span></h4>
+        <div class="video-responsive">
+            <div>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/phVnLAOMF98" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="left-container-item">
+        {{ print_categories_list() }}
+    </div>
+    <div class="left-container-item">
+        {{ print_tags_cloud() }}
+    </div>
+
 {% endblock %}
 
 

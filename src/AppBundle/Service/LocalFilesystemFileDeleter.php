@@ -28,7 +28,9 @@ class LocalFilesystemFileDeleter implements FileDeleter
         $this->filePath = $filePath;
     }
 
-    public function delete(string $pathToFile) {
+
+    public function delete($pathToFile) {
+
         $this->filesystem->remove(
             $this->filePath.'/'.$pathToFile
         );

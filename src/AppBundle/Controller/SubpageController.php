@@ -46,13 +46,6 @@ class SubpageController extends Controller
                 'avatar' => 'sensei_grzegorz_sokol.jpg'
             ],
             [
-                'imie'=>'Dariusz',
-                'nazwisko'=>'Hezner',
-                'stopien' => '1 kyū',
-                'tytul' => '',
-                'avatar' => 'sempai_dariusz_hezner.jpg'
-            ],
-            [
                 'imie'=>'Łukasz',
                 'nazwisko'=>'Sokół',
                 'stopien' => '1 kyū',

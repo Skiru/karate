@@ -92,6 +92,7 @@ class PhotoUploadListener
         );
 
 
+
         //addition infos setting up for entity before persisting
         //$file->getClientOriginalName()
 
@@ -103,9 +104,6 @@ class PhotoUploadListener
             ->setImageName(
                 $fileName
             )
-//            )->setSlug(
-//                Utils::sluggify($file->getClientOriginalName())
-//            )
         ;
 
         return true;
@@ -126,8 +124,9 @@ class PhotoUploadListener
 
         $entity->setImageFile(null);
         $this->fileDeleter->delete(
-            $entity->getImageName()
+            (string)$entity->getImageName()
         );
+
 
 
     }

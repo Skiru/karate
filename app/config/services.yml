@@ -28,8 +28,8 @@ services:
             - "@app.service.local_filesystem_file_deleter"
         tags:
             - { name: doctrine.event_listener, event: prePersist }
-            - { name: doctrine.event_listener, event: preRemove }
             - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: preRemove }
 
     app.form.type.custom_file_type:
         class: AppBundle\Form\Type\CustomFileType
