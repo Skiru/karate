@@ -1047,10 +1047,10 @@ span.head-line {
 }
 
 .gallery-wrapper {
-    width: 25%;
+    width: 35%;
 }
 
-.gallery-wrapper > div {
+.gallery-wrapper > div, .galleries-wrapper > div {
     padding: 0;
     margin:0;
 }
@@ -1085,6 +1085,21 @@ span.head-line {
     border-top: 1px solid #ccc;
     padding: 8px;
     text-align: center;
+}
+
+.displaying-switch
+{
+    box-sizing: border-box;
+    padding: 8px 0;
+    margin-bottom: 12px;
+}
+
+.displaying-switch label{
+    font-weight: normal;
+}
+
+.displaying-switch select, .displaying-switch select option{
+    padding: 3px 6px;
 }
 
 
@@ -1573,6 +1588,19 @@ footer .autors {
 }
 
 /*<=================================MEDIA QUERIES========================================>*/
+/*Gallery media qeries*/
+
+@media all and (max-width: 767px) {
+
+    .displaying-switch{
+        display: none;
+    }
+    .gallery-wrapper{
+        width: 100%;
+    }
+}
+
+
 
 /*end of gallery queries*/
 /*FORMATOWANIE TABELI RESPONSYWNEJ*/
