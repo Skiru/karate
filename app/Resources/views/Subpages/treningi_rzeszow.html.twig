@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ headerTitle }}
+{% endblock %}
+
+{% block full_width_container %}
+
+    <h1 class="header-title border_animation">{{ headerTitle }} <span class="head-line"></span></h1>
+
+    <div class="schedule-table">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Grupa</th> <th>Godzina</th> <th>Poniedziałek</th> <th>Środa</th> <th>Piątek</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>początkujący dzieci</td>
+                    <td>17:00 - 18:00</td>
+                    <td><span class="fa fa-check"></span> </td>
+                    <td><span class="fa fa-check"></span> </td>
+                    <td><span class="fa fa-times"></span> </td>
+                </tr>
+
+                <tr>
+                    <td>średniozaawansowane dzieci</td>
+                    <td>18:00 - 19:00</td>
+                    <td><span class="fa fa-check"></span> </td>
+                    <td><span class="fa fa-check"></span> </td>
+                    <td><span class="fa fa-times"></span> </td>
+                </tr>
+
+                <tr>
+                    <td>dorośli wszystkie grupy</td>
+                    <td>19:00 - 20:30</td>
+                    <td><span class="fa fa-check"></span> </td>
+                    <td><span class="fa fa-check"></span> </td>
+                    <td><span class="fa fa-times"></span> </td>
+                </tr>
+
+                <tr>
+                    <td>grupa średniozaawansowana</td>
+                    <td>19:00 - 20:30</td>
+                    <td><span class="fa fa-check"></span> </td>
+                    <td><span class="fa fa-check"></span> </td>
+                    <td>18:30 - 20:00 <br> <span class="fa fa-check"></span> </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

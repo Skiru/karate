@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ headerTitle }}
+{% endblock %}
+
+{% block full_width_container %}
+
+    <h1 class="header-title border_animation">{{ headerTitle }} <span class="head-line"></span></h1>
+
+    <div class="schedule-table hyzne">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Godzina</th> <th>Wtorek</th> <th>Czwartek</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>18:00 - 19:00</td>
+                    <td><span class="fa fa-check"></span> </td>
+                    <td><span class="fa fa-check"></span> </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

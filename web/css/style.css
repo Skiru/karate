@@ -27,18 +27,14 @@ pre {
 }
 
 body, html {
+    overflow-x: hidden;
     padding: 0;
     margin: 0;
     width: 100%;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    overflow-x: hidden;
-    font-smoothin: always;
-}
-
-body {
-    /* background: url("../img/background-imager/9.png"); */
     background-color: #fafafa;
 }
 
@@ -146,7 +142,7 @@ body {
 
 /*Wyszukiwarka*/
 .search-row > .container {
-    padding-right: 0px;
+    padding-right: 0;
 }
 
 /*Chmurka tagów*/
@@ -664,14 +660,11 @@ li.active a:after {
 
 /* Definition of container */
 .container {
-    margin-left: auto;
-    margin-right: auto;
     padding: 12px 10px;
-    overflow: hidden;
 }
 
 .bg_color {
-    margin-bottom: 0px !important;
+    /*margin-bottom: 0 !important;*/
     background: #fff; /* For browsers that do not support gradients */
     background: -webkit-radial-gradient(circle, #ffffff, #ffffff, #ffffff);
     background: -o-radial-gradient(circle, #ffffff, #ffffff, #ffffff);
@@ -717,6 +710,7 @@ li.active a:after {
     font-weight: 500;
     position: relative;
 }
+
 
 .text-red-underline {
     border-bottom: 2px solid red;
@@ -896,13 +890,11 @@ span.head-line {
     margin: 15px 0px 30px 0px;
     background-color: #fff;
     line-height: 140%;
-    -webkit-font-smoothing: antialiased;
     -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .12);
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .12);
 }
 
 .container-width > .news:hover {
-    -webkit-font-smoothing: antialiased;
     -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .12);
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .25);
 }
@@ -915,7 +907,7 @@ span.head-line {
 .title {
     font-size: 22px;
     font-weight: 400;
-    margin-top: 0px;
+    margin-top: 0;
     display: block;
     padding: 16px 0;
 }
@@ -932,7 +924,6 @@ span.head-line {
     color: #555555;
     font-size: 1.2em;
     box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
 }
 
 .news ul li {
@@ -978,7 +969,6 @@ span.head-line {
 .news-link a:hover {
     text-decoration: none;
     color: #fff;
-    text-decoration: none;
     background-color: #0d0d0d;
     -moz-transition: .3s background-color ease;
     -webkit-transition: .3s background-color ease;
@@ -1013,26 +1003,6 @@ span.head-line {
     opacity: 1;
 }
 
-/* .button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-.button span:after {
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -30px;
-  transition: 0.5s;
-}
-.button:hover span {
-  padding-right: 50px;
-}
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-  } */
 
 /*GALERY BELOW*/
 .hvr-underline-from-left {
@@ -1077,7 +1047,7 @@ span.head-line {
 }
 
 .gallery-wrapper {
-    width: 100%;
+    width: 25%;
 }
 
 .gallery-wrapper > div {
@@ -1345,7 +1315,6 @@ h3.footer_heading {
     text-decoration: none;
     color: rgb(157, 26, 26);
     outline: 0;
-    text-decoration: none;
     background-color: transparent;
     transition-property: background-color, box-shadow, border, color, opacity, transform;
     transition-duration: 0.3s;
@@ -1444,6 +1413,48 @@ footer .autors {
     -webkit-transform: scaleY(1);
     transform: scaleY(1);
 }
+/*
+ *
+ *   Stylowanie strony rozkład treningów
+ *
+ */
+.schedule-table{
+    overflow-x: auto;
+    overflow-y: auto;
+    text-align: center;
+}
+.schedule-table table thead tr th{
+    text-align: center;
+}
+
+.schedule-table table tbody tr td span{
+    font-size: 1.5em;
+}
+
+.schedule-table table tbody tr .fa-check{
+    color: green;
+}
+.schedule-table table tbody tr .fa-times{
+    color: red;
+}
+.schedule-table.hyzne table tbody tr:first-child{
+    background-color: #f39f18;
+}
+
+.schedule-table table tbody tr:first-child{
+    background-color: #30d5c8;
+}
+
+.schedule-table table tbody tr:nth-child(2){
+    background-color: #f39f18;
+}
+.schedule-table table tbody tr:nth-child(3){
+    background-color: #ace1af;
+}
+
+/*style="background-color: #30d5c8"*/
+
+
 
 /*
  * 
@@ -1569,6 +1580,9 @@ footer .autors {
     .news table {
         max-width: 355px;
     }
+    .bg_color{
+        padding-bottom: 150px;
+    }
 }
 
 @media only screen and (max-width: 1452px) {
@@ -1622,9 +1636,9 @@ footer .autors {
         display: block;
     }
 
-    ::-webkit-scrollbar {
-        display: none;
-    }
+    /*::-webkit-scrollbar {*/
+        /*display: none;*/
+    /*}*/
 
     .stronnicowanie li {
         font-size: 1em;
@@ -1693,7 +1707,8 @@ footer .autors {
     }
 
     .container .news p {
-        font-size: 14px/140% !important;
+        font-size: 14px !important;
+        line-height: 140% !important;
     }
 
     .container .triple {

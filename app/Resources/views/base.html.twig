@@ -2,17 +2,23 @@
 <html lang="pl">
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Karate Kyokushin Rzeszów, strona Internetowa klubu{% endblock %}</title>
+        <title>{% block title %}Karate Kyokushin Rzeszów - Wszystko o Karate, zdjęcia, rozkłady treningów, wymagania egzaminacyjne {% endblock %}</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- Keywords for website -->
         <meta name="keywords" content="karate, kyoukushin, rzeszów, dojo, trening, IKO, karate kyokushin, hyżne">
         <!-- Website description -->
-        <meta name ="description" content="Strona Internetowa poświęcona Rzeszowskiemu klubowi Karate Kyokushin. Znajdziesz tutaj aktualności, rozkład treningów, naszych intruktorów oraz bogata galerie zdjec. Zapraszamy Rzeszowski Klub Karate Kyoukushin. OSU!">
+        <meta name ="description" content="Strona Internetowa poświęcona Rzeszowskiemu klubowi Karate Kyokushin. Znajdziesz tutaj aktualności, rozkład treningów, naszych intruktorów oraz bogata galerie zdjęć. Zapraszamy Rzeszowski Klub Karate Kyoukushin. OSU!">
         <!-- Always have to display in x1 scale -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <meta name="author" content="Karate Kyokushin Rzeszów">
         <meta name="copyright" content="Karate Kyokushin Rzeszów" />
         <meta name="robots" content="index, follow"/>
+        {#Tags for facebook#}
+        <meta property="og:url"                content="https://kyokushin-rzeszow.pl/" />
+        <meta property="og:type"               content="website" />
+        <meta property="og:title"              content="Karate Kyokushin Rzeszów - strona Internetowa poświęcona sztuce Karate" />
+        <meta property="og:description"        content="Historia karate, ciekawostki, galerie zdjęć, wymagania egzaminacyjne, regulamin, rozkłady zajęć - wszystko o Karate Kyokushin!" />
+        <meta property="og:image"              content="https://kyokushin-rzeszow.pl/images/logo.png" />
 
 
         <!-- CSS Style sheets -->
@@ -51,8 +57,8 @@
                 <li class="drp-down">
                     <a href="#" class="dropbtn">Rozkład treningów</a>
                     <div class="drp-down-content">
-                        <a href="#">treningi Rzeszów</a>
-                        <a href="#">treningi Hyżne</a>
+                        <a href="{{ path('karate_training_schedule_rzeszow') }}">treningi Rzeszów</a>
+                        <a href="{{ path('karate_training_schedule_hyzne') }}">treningi Hyżne</a>
                     </div>
                 </li>
                 <li><a href="#">Wymagania egzaminacyjne</a></li>
@@ -91,8 +97,8 @@
                 <li class="pushy-submenu">
                     <a href="#">Rozkład treningów</a>
                     <ul>
-                        <li class="pushy-link"><a href="#">Treningi Rzeszów</a></li>
-                        <li class="pushy-link"><a href="#">Treningi Hyżne</a></li>
+                        <li class="pushy-link"><a href="{{ path('karate_training_schedule_rzeszow') }}">Treningi Rzeszów</a></li>
+                        <li class="pushy-link"><a href="{{ path('karate_training_schedule_hyzne') }}">Treningi Hyżne</a></li>
                     </ul>
                 </li>
                 <li class="pushy-link"><a href="#">Wymagania egzaminacyjne</a></li>
@@ -189,7 +195,7 @@
                     <ul>
                         <h3 class="footer_heading"><i class="fa fa-globe" aria-hidden="true"></i> Klub</h3>
                         <li><a href="{{ path('karate_posts_index') }}">Strona początkowa</a></li>
-                        <li><a href="#">Rozkład treningów</a></li>
+                        <li><a href="{{ path('karate_training_schedule_rzeszow') }}">Rozkład treningów</a></li>
                         <li><a href="#">Kalendarz imprez</a></li>
                         <li><a href="{{ path('karate_instructors') }}">Instruktorzy</a></li>
                     </ul>

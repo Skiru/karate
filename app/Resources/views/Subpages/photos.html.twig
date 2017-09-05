@@ -13,25 +13,34 @@
 
     {% else %}
         <h4 class="border_animation header-title">Zdjęcia w galerii: {{ gallery.name }}<span class="head-line"></span></h4>
+            <div class="form-group">
+                <label for="selection"> Wybór sposobu wyświetlania zdjęć: </label>
+                <select id="selection">
+                    <option>Jedno pod drugim</option>
+                    <option>W siatce</option>
+                </select>
+            </div>
 
-            <main class="gallery-wrapper clearfix" data-chocolat-title="{{ gallery.name }}">
+            <main class="gallery-wrapper center-block clearfix" data-chocolat-title="{{ gallery.name }}">
 
                 {% for photo in photos %}
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                    <div class="single-photo">
-                        <a class="chocolat-image" href="{{ asset('uploads/images/galleries/'~ photo.imageName) }}" title="Data dodania: {{ photo.createdAt|date('d.m.Y, H:m')  }}">
-                            <img class="img-responsive" src="{{ asset('uploads/images/galleries/'~ photo.imageName) }}" alt="{{ photo.slug }}" >
-                        </a>
+                    {#col-lg-3 col-md-4 col-sm-6#}
+                        <div class="col-xs-12">
+                            <div class="single-photo">
+                                <a class="chocolat-image" href="{{ asset('uploads/images/galleries/'~ photo.imageName) }}" title="Data dodania: {{ photo.createdAt|date('d.m.Y, H:m')  }}">
+                                    <img class="img-responsive" src="{{ asset('uploads/images/galleries/'~ photo.imageName) }}" alt="{{ photo.slug }}" >
+                                </a>
 
-                        <div class="desc">Dodano: {{ photo.createdAt|date('d.m.Y, H:m') }}</div>
+                                <div class="desc">Dodano: {{ photo.createdAt|date('d.m.Y, H:m') }}</div>
 
-                    </div>
-                </div>
+                            </div>
+                        </div>
+
                 {% endfor %}
 
             </main>
 
-        <div class="head-line"></div>
+        <hr>
 
         <div class="news-link news-link-forward">
             <a href="{{ path('karate_gallery_index') }}" class="btn-green"><span class="fa fa-chevron-circle-left" aria-hidden="true"></span> Powrót do spisu galerii </a>
@@ -50,8 +59,34 @@
                 fullscreen: true,
                 loop: true
             });
+        });
+    </script>
+
+    <script>
+
+        var selectionBox = $("#selection");
+
+        selectionBox.change(function () {
+
+            var selectionBoxText = selectionBox.find(":selected").text();
+            var photosContainer = $(".gallery-wrapper");
+            var singlePhoto = $(".col-xs-12");
+
+            if (selectionBoxText=="Jedno pod drugim") {
+                photosContainer.addClass("center-block");
+                photosContainer.css({"width":"25%"});
+                singlePhoto.removeClass("col-lg-3", "col-md-4", "col-sm-6");
+            }
+
+            if (selectionBoxText == "W siatce") {
+                photosContainer.css({"width":"100%"});
+                photosContainer.removeClass("center-block");
+                singlePhoto.addClass("col-lg-3", "col-md-4", "col-sm-6");
+            }
+
 
         });
+
     </script>
 
 {% endblock %}
